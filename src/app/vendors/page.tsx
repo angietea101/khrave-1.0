@@ -18,7 +18,7 @@ const page = async () => {
     <main className={'vendor-container'}>
         <Link className={'back-button'} href="/">
             <div className={'back-button-circle'}>
-            <div className={`${'arrow'} ${'left'}`}></div>
+              <div className={`${'arrow'} ${'left'}`}></div>
             </div>
         </Link>
       <div className={'top-wrapper'}>

@@ -1,86 +1,81 @@
-import { db } from "@/app/lib/db";
-import Post from "@/components/Post";
-import Link from "next/link";
-import styles from './page.module.css';
+"use client"
 
-const imageMap = {
-    subway: {
-        background: '/subway-background.png',
-        logo: '/subway-circle-logo.png',
-    },
-    chipotle: {
-        background: '/chipotle-background.jpg',
-        logo: '/chipotle-circle-logo.png',
-    },
-    dominos: {
-        background: '/dominos-background.jpg',
-        logo: '/dominos-circle-logo.png',
-    },
-};
+import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
-async function getPosts(vendorName: string) {
-    const posts = await db.post.findMany({
-        where: { 
-            published: true,
-            vendor: {
-                vendorName: {
-                    equals: vendorName,
-                    mode: 'insensitive', 
-                }
-            }
-        },
-        include: {
-            author: {
-                select: { username: true }
-            },
-            vendor: {
-                select: { vendorName: true }
-            }
-        },
-        orderBy: {
-            createdAt: 'desc' 
+export default function CreatePost() {
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const vendorName = searchParams.get('vendorName');
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        
+        try {
+            await fetch('/api/create-post', {
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, content, vendorName: vendorName })
+            });
+            router.push(`/vendors/${vendorName}`);
+        } catch (error) {
+            console.error(error);
         }
-    });
-    console.log('Fetched Posts:', posts, '\n');
-    return posts;
-}
 
-export default async function VendorPage({
-    params,
-}: {
-    params: { vendorName: string };
-}) {
-    const posts = await getPosts(params.vendorName);
-    const vendor = params.vendorName.toLowerCase() as keyof typeof imageMap;
-    const vendorImages = imageMap[vendor];
+        setTitle('');
+        setContent('');
+    };
 
     return (
-        <div className={styles.container}>
-            <div className={styles.vendorWrapper}>
-                <Link className={styles.backButton} href="/vendors">
-                    <div className={styles.backButtonCircle}>
-                        <div className={`${styles.arrow} ${styles.left}`}></div>
+        <main className="w-full h-screen bg-primary flex items-center justify-center">
+            <div className="bg-secondary p-8 rounded-2xl shadow-md max-w-md w-full">
+            <Link 
+    href={`/vendors/${vendorName}`} 
+    className="bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center"
+>
+    View Feed
+</Link>
+                <h1 className="text-3xl font-bold text-white mb-8">Create Post for {vendorName}</h1>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                        <label htmlFor="title" className="block text-white text-lg font-semibold mb-2">
+                            Title:
+                        </label>
+                        <input
+                            type="text"
+                            id="title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Enter post title"
+                        />
                     </div>
-                </Link>
-                <div className={styles.circle}>
-                    <img src={vendorImages.logo} alt="Circle Image" />
-                </div>
-                <img src={vendorImages.background} alt={`${params.vendorName} background`} className={styles.vendorImage} />
-                <h1 className={styles.vendorTitle}>{params.vendorName}</h1>
-                <Link className={styles.createPostButton} href={`${params.vendorName}/create-post?vendorName=${params.vendorName}`}>
-                    <h1 className={styles.plusSign}></h1>
-                </Link>
+                    <div>
+                        <label htmlFor="content" className="block text-white text-lg font-semibold mb-2">
+                            Content:
+                        </label>
+                        <textarea
+                            id="content"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            required
+                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder= "Write your content here..."
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="w-full bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out"
+                    >
+                        Submit
+                    </button>
+                </form>
             </div>
-            {posts.map((post) => (
-                <Post 
-                    key={post.id}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    author={post.author}
-                    vendor={post.vendor}
-                />
-            ))}
-        </div>
+        </main>
     );
+    
 }

@@ -239,7 +239,7 @@ body {
 }
 
 .back-button {
-  @apply absolute top-[7rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100;
+  @apply absolute top-[7rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 z-10;
 }
 
 .back-button-circle {
@@ -256,23 +256,23 @@ body {
 
 /* Individual Vendor Pgaes */
 .i-vendor-container {
-  @apply flex flex-col items-center w-full mt-20 pt-6 mb-16;
+  @apply flex flex-col items-center w-full mt-20 pt-6 mb-16 relative;
 }
 
 .i-vendor-wrapper {
-  @apply relative h-60 w-full overflow-hidden flex;
+  @apply relative h-72 w-full overflow-hidden flex;
 }
 
-.i-vendor-images {
+.i-vendor-image {
   @apply h-full w-full object-cover;
 }
 
 .i-vendor-title {
-  @apply absolute bottom-0 left-24 text-white font-extrabold text-5xl m-4 mb-2 p-2 drop-shadow-lg;
+  @apply absolute bottom-8 left-36 text-white font-extrabold text-7xl m-4 mb-2 p-2 drop-shadow-lg;
 }
 
 .i-circle {
-  @apply w-20 h-20 rounded-full bg-white absolute left-4 bottom-8 flex items-center justify-center overflow-hidden shadow-lg;
+  @apply w-24 h-24 rounded-full bg-white absolute left-14 bottom-8 flex items-center justify-center overflow-hidden shadow-lg;
 }
 
 .i-create-post-button {
@@ -299,6 +299,10 @@ body {
 
 .plus-sign::after {
   @apply h-1 w-full top-1/2 transform -translate-y-1/2;
+}
+
+.i-back-button {
+  @apply absolute top-[4rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 z-10;
 }
 
 /* Shadcn stuff */

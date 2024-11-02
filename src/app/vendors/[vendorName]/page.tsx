@@ -1,5 +1,6 @@
 import { db } from "@/app/lib/db";
 import Post from "@/components/Post";
+import Image from "next/image";
 import Link from "next/link";
 import { use } from "react";
 
@@ -56,22 +57,22 @@ export default async function VendorPage({
     const vendorImages = imageMap[vendor];
 
     return (
-        <div className={''}>
-            <div className={''}>
-                <Link className={''} href="/vendors">
-                    <div className={''}>
-                        <div className={`${''} ${''}`}></div>
-                    </div>
-                </Link>
-                <div className={''}>
-                    <img src={vendorImages.logo} alt="Circle Image" />
+        <div className={'i-vendor-container'}>
+            <Link className={'i-back-button'} href="/vendors">
+                <div className={'back-button-circle'}>
+                    <div className={`${'arrow'} ${'left'}`}></div>
                 </div>
-                <img src={vendorImages.background} alt={`${vendorName} background`} className={''} />
-                <h1 className={''}>{vendorName}</h1>
-                <Link className={''} href={`/${vendorName}/create-post?vendorName=${vendorName}`}>
-                    <h1 className={''}>Create Post</h1>
-                </Link>
+            </Link>
+            <div className={'i-vendor-wrapper'}>
+                <div className={'i-circle'}>
+                    <Image className={'i-vendor-image'} src={vendorImages.logo} width={200} height={200} alt="Circle Image" />
+                </div>
+                <Image className={'i-vendor-image'} src={vendorImages.background} width={2500} height={2000} alt={`${vendorName} background`} />
+                <h1 className={'i-vendor-title'}>{vendorName}</h1>
             </div>
+            <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
+                    <h1 className={'plus-sign'}></h1>
+            </Link>
             {posts.map((post) => (
                 <Post 
                     key={post.id}
