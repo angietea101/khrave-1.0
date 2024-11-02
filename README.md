@@ -56,9 +56,25 @@ To get started with **Khrave**, follow these steps:
 
 3. Set up your environment variables:
 
-   Create a `.env` file in the root directory and add the required environment variables.
+   Create a `.env` file in the root directory and add the required environment variables. Required environment variables indclude: `DATABASE_URL` and `NEXTAUTH_SECRET`.
 
-4. Run the development server:
+4. Prisma Initialization:
+
+   After installing the dependencies, add a step to initialize Prisma and generate the database schema.
+
+   ```bash
+   npx prisma init
+   ```
+
+5. Database Migration:
+
+   Migrate your database after setting up your schema in schema.prisma
+
+   ```bash
+   npx prisma migrate dev --name init
+   ```
+
+6. Run the development server:
 
    ```bash
    npm run dev
