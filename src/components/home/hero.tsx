@@ -13,9 +13,11 @@ export const Hero = () => {
                 </div>
 
                 <div className="create-post-button">
-                    <button className="">
-                        create post
-                    </button>
+                    <Link href='/vendors'>
+                        <button className="">
+                            create post
+                        </button>
+                    </Link>
                 </div>
             </div>
 
