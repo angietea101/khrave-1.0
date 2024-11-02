@@ -52,6 +52,7 @@ export default async function VendorPage({
 }) {
     const { vendorName } = await params;
     const posts = await getPosts(vendorName);
+    
     const vendor = vendorName.toLowerCase() as keyof typeof imageMap;
     const vendorImages = imageMap[vendor];
 
@@ -74,16 +75,20 @@ export default async function VendorPage({
             </Link>
             <div className="post-wall-wrapper">
                 <div className="post-wall">
-                    {posts.map((post) => (
-                        <Post 
-                            key={post.id}
-                            id={post.id}
-                            title={post.title}
-                            content={post.content}
-                            author={post.author}
-                            vendor={post.vendor}
-                        />
-                    ))}
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <Post 
+                                key={post.id}
+                                id={post.id}
+                                title={post.title}
+                                content={post.content}
+                                author={post.author}
+                                vendor={post.vendor}
+                            />
+                        ))
+                    ) : (
+                        <p className="no-posts">There are zero posts :(</p>
+                    )}
                 </div>
                 <Image className={'cat-sando'} src={'/cat-sando.png'} alt="cat sando" width={300} height={300} />
             </div>

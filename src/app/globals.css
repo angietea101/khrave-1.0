@@ -342,6 +342,10 @@ body {
   @apply w-1/5 h-1/5 m-32 ml-32 mr-10;
 }
 
+.no-posts {
+  @apply text-red-500 font-bold m-72;
+}
+
 /* Individual Posts */
 .post-container {
   @apply bg-[#d6b483] rounded-[2rem] p-8 my-12 w-full shadow-lg;
