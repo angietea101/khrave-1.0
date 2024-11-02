@@ -110,6 +110,22 @@ body {
   @apply w-full mt-20 pt-6;
 }
 
+.home-body-container {
+  @apply flex flex-col justify-between w-5/6 mx-auto pt-5 pb-5 pl-12 pr-12 mt-10 mb-10;
+}
+
+.section-title-wrapper {
+  @apply flex justify-between items-center m-10;
+}
+
+.section-title-wrapper p {
+  @apply text-4xl font-bold text-black;
+}
+
+.section-title-wrapper span {
+  @apply text-2xl font-normal text-black;
+}
+
 /* Hero section */
 .hero-container {
   @apply flex items-center justify-center w-full;
@@ -131,37 +147,50 @@ body {
   @apply w-[180px] h-[65px] bg-secondary text-white py-2 px-4 rounded-[28px] hover:shadow-md text-[22px];
 }
 
+.create-post-button button:hover {
+  @apply bg-[#e1c6a0];
+}
+
 /* Featured section */
-.featured-container {
-  @apply flex flex-col justify-between w-5/6 mx-auto pt-5 pb-5 pl-12 pr-12 mt-10 mb-10;
-}
-
-.featured-title-wrapper {
-  @apply flex justify-between items-center m-10;
-}
-
-.featured-title {
-  @apply text-4xl font-bold text-black;
+.featured-picture-gallery {
+  @apply pl-16 pr-16 grid grid-cols-6 gap-4;
 }
 
 .browse-wrapper {
   @apply flex items-center flex-row hover:underline;
 }
 
-.browse-text {
-  @apply text-2xl font-normal text-black;
-}
-
 .featured-image {
   @apply w-[140px] h-[170px] rounded-[100px] shadow-md bg-white hover:shadow-xl hover:bg-secondary border-4 border-secondary z-0 flex items-center justify-center;
+}
+
+/* Recent orders section */
+.recent-picture-gallery {
+  @apply pl-16 pr-16 grid grid-cols-4 gap-4;
+}
+
+.food-rectangle {
+  @apply flex flex-col items-center justify-center bg-[#d6b483] rounded-[2rem] overflow-hidden h-[20rem] w-[15.625rem] relative m-4;
+}
+
+.food-rectangle:hover {
+  @apply bg-[#e1c6a0];
+}
+
+.food-rectangle h4 {
+  @apply text-white m-2 mb-0 font-bold tracking-wider;
+}
+
+.food-rectangle p {
+  @apply text-white leading-3;
 }
 
 .food-rectangle-image {
   @apply w-full h-full object-cover;
 }
 
-.food-rectangle {
-  @apply bg-[#d6b483] rounded-[2rem] overflow-hidden h-[18.125rem] w-[15.625rem] relative m-4;
+.image-shape {
+  @apply rounded-[2rem] overflow-hidden h-52 w-52 relative;
 }
 
 /* Shadcn stuff */

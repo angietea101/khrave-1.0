@@ -11,6 +11,7 @@ export default async function Home() {
     <div className="home-container center-vertically">
       <Hero/>
       <Features />
+      <Recent />
       <h1 className='text-4xl'>Home</h1>
 
       <h2>Client Session</h2>
