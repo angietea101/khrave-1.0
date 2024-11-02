@@ -305,6 +305,68 @@ body {
   @apply absolute top-[4rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 z-10;
 }
 
+/* Create Post */
+.view-feed-button {
+  @apply bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center;
+}
+
+.p-wrapper {
+  @apply bg-secondary p-8 pb-14 rounded-3xl shadow-md max-w-md w-full;
+}
+
+.p-wrapper h1 {
+  @apply text-3xl font-semibold text-white m-5 text-center;
+}
+
+.p-wrapper label {
+  @apply block text-white text-lg font-semibold mb-2;
+}
+
+.p-wrapper input {
+  @apply w-full p-4 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.p-wrapper textarea {
+  @apply w-full p-4 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.post-wall-wrapper {
+  @apply w-5/6 flex justify-center;
+}
+
+.post-wall {
+  @apply w-1/2;
+}
+
+.cat-sando {
+  @apply w-1/5 h-1/5 m-32 ml-32 mr-10;
+}
+
+/* Individual Posts */
+.post-container {
+  @apply bg-[#d6b483] rounded-[2rem] p-8 my-12 w-full shadow-lg;
+}
+
+.post-container h3 {
+  @apply text-white mr-4 font-extrabold;
+}
+
+.post-container p {
+  @apply text-white mt-4;
+}
+
+.subject-wrapper {
+  @apply flex items-center mr-8;
+}
+
+.subject-wrapper h3 {
+  @apply mr-4;
+}
+
+.subject-wrapper h3:last-child {
+  @apply mr-0;
+}
+
 /* Shadcn stuff */
 .destructive {
   border: 1px solid var(--border-destructive);

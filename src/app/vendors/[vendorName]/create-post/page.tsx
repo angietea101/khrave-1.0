@@ -30,18 +30,18 @@ export default function CreatePost() {
     };
 
     return (
-        <main className="w-full h-screen bg-primary flex items-center justify-center">
-            <div className="bg-secondary p-8 rounded-2xl shadow-md max-w-md w-full">
-            <Link 
-    href={`/vendors/${vendorName}`} 
-    className="bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center"
->
-    View Feed
-</Link>
-                <h1 className="text-3xl font-bold text-white mb-8">Create Post for {vendorName}</h1>
+        <main className="center">
+            <div className="p-wrapper">
+                <Link 
+                    href={`/vendors/${vendorName}`} 
+                    className="view-feed-button"
+                >
+                    View Feed
+                </Link>
+                <h1 className="">Create Post for {vendorName}</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="title" className="block text-white text-lg font-semibold mb-2">
+                        <label htmlFor="title" className="">
                             Title:
                         </label>
                         <input
@@ -50,12 +50,11 @@ export default function CreatePost() {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
-                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder="Enter post title"
                         />
                     </div>
                     <div>
-                        <label htmlFor="content" className="block text-white text-lg font-semibold mb-2">
+                        <label htmlFor="content">
                             Content:
                         </label>
                         <textarea
@@ -63,7 +62,6 @@ export default function CreatePost() {
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             required
-                            className="w-full p-4 rounded-full shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             placeholder= "Write your content here..."
                         />
                     </div>

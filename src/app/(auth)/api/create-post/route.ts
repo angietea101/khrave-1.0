@@ -12,13 +12,13 @@ export async function POST(request: Request) {
 
     const session = await getServerSession(authOptions);
 
-    if (!session || !session.user || !session.user.name) {
+    if (!session || !session.user || !session.user.username) {
         return NextResponse.json({ error: "User not authenticated" }, { status: 401 });
     }
 
     // Find the user ID based on the username from the session
     const user = await db.user.findUnique({
-        where: { username: session.user.name },
+        where: { username: session.user.username },
         select: { id: true }
     });
 

@@ -42,7 +42,6 @@ async function getPosts(vendorName: string) {
             createdAt: 'desc' 
         }
     });
-    console.log('Fetched Posts:', posts, '\n');
     return posts;
 }
 
@@ -73,16 +72,21 @@ export default async function VendorPage({
             <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
                     <h1 className={'plus-sign'}></h1>
             </Link>
-            {posts.map((post) => (
-                <Post 
-                    key={post.id}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    author={post.author}
-                    vendor={post.vendor}
-                />
-            ))}
+            <div className="post-wall-wrapper">
+                <div className="post-wall">
+                    {posts.map((post) => (
+                        <Post 
+                            key={post.id}
+                            id={post.id}
+                            title={post.title}
+                            content={post.content}
+                            author={post.author}
+                            vendor={post.vendor}
+                        />
+                    ))}
+                </div>
+                <Image className={'cat-sando'} src={'/cat-sando.png'} alt="cat sando" width={300} height={300} />
+            </div>
         </div>
     );
 }
