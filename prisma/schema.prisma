@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  email    String @unique
+  password String
+
+  writtenPosts  Post[] @relation("WrittenPosts")
+  favoritePosts Post[] @relation("FavoritePosts")
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+
+  @@index([email])
+}
+
+model Post {
+  id            Int   @id @default(autoincrement())
+  author        User  @relation("WrittenPosts", fields: [authorId], references: [id])
+  authorId      Int
+  favoritedBy   User? @relation("FavoritePosts", fields: [favoritedById], references: [id])
+  favoritedById Int?
+
+  title     String
+  content   String
+  price     Float?
+  published Boolean  @default(false)
+  vote      Int
+  createdAt DateTime @default(now())
+  image     String?
+
+  vendor   Vendor @relation(fields: [vendorId], references: [id])
+  vendorId Int
+
+  tags Tag[] @relation("PostTags") // Many-to-many relation with Tag
+}
+
+model Vendor {
+  id         Int    @id @default(autoincrement())
+  vendorName String @unique
+  posts      Post[]
+}
+
+model Tag {
+  id    Int     @id @default(autoincrement())
+  type  TagType
+  posts Post[]  @relation("PostTags")
+}
+
+enum TagType {
+  SWEET
+  SPICY
+  SALTY
+  SOUR
+  BITTER
+  BLAND
+  SAVORY
+}
