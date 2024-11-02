@@ -27,6 +27,10 @@ body {
 }
 
 /* Tailwind Utility Classes */
+.not-auth {
+  @apply font-bold text-red-400 cursor-default;
+}
+
 /* Login / Register */
 .center {
   @apply flex items-center justify-center min-h-screen;
@@ -305,6 +309,10 @@ body {
   @apply absolute top-[4rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 z-10;
 }
 
+.i-not-auth {
+  @apply mt-12 font-bold text-red-400 cursor-default;
+}
+
 /* Create Post */
 .view-feed-button {
   @apply bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center;
@@ -343,7 +351,7 @@ body {
 }
 
 .no-posts {
-  @apply text-red-500 font-bold m-72;
+  @apply text-red-400 font-bold m-72;
 }
 
 /* Individual Posts */

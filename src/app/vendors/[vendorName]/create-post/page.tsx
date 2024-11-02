@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { useSession } from "next-auth/react";
 
 export default function CreatePost() {
+    const { data: session, status } = useSession();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const router = useRouter();
@@ -28,6 +30,14 @@ export default function CreatePost() {
         setTitle('');
         setContent('');
     };
+
+    if (status === "loading") {
+        return <p className='center'>Loading...</p>; 
+    }
+
+    if (!session) {
+        return <p className='center not-auth'>Log in to create posts</p>; 
+    }
 
     return (
         <main className="center">

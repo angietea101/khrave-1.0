@@ -2,7 +2,8 @@ import { db } from "@/app/lib/db";
 import Post from "@/components/Post";
 import Image from "next/image";
 import Link from "next/link";
-import { use } from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
 
 const imageMap = {
     subway: {
@@ -56,6 +57,8 @@ export default async function VendorPage({
     const vendor = vendorName.toLowerCase() as keyof typeof imageMap;
     const vendorImages = imageMap[vendor];
 
+    const session = await getServerSession(authOptions);
+
     return (
         <div className={'i-vendor-container'}>
             <Link className={'i-back-button'} href="/vendors">
@@ -70,9 +73,15 @@ export default async function VendorPage({
                 <Image className={'i-vendor-image'} src={vendorImages.background} width={2500} height={2000} alt={`${vendorName} background`} />
                 <h1 className={'i-vendor-title'}>{vendorName}</h1>
             </div>
-            <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
+            
+            {session ? (
+                <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
                     <h1 className={'plus-sign'}></h1>
-            </Link>
+                </Link>
+            ) : (
+                <p className="i-not-auth">Log in to create a post.</p>
+            )}
+
             <div className="post-wall-wrapper">
                 <div className="post-wall">
                     {posts.length > 0 ? (
