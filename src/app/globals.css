@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,8 +18,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  min-hieght: 100vh;
+  font-family: var(--font-nunito-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
 }
 
 .nunito_sans {
@@ -36,6 +38,10 @@ body {
 
 .center-horizontally {
   @apply flex justify-center;
+}
+
+.center-vertically {
+  @apply flex flex-col items-center w-full;
 }
 
 .wrapper {
@@ -80,7 +86,11 @@ body {
 
 /* Navbar */
 .navbar-wrapper {
-  @apply bg-primary p-6 border-b border-s-zinc-200 fixed w-full z-10 top-0 pl-12 pr-12;
+  @apply bg-primary pt-6 pb-6 border-s-zinc-200 fixed w-full z-10 top-0 pl-0 pr-0;
+}
+
+.navbar-container {
+  @apply flex items-center justify-between;
 }
 
 .navbar-login-button {
@@ -93,6 +103,43 @@ body {
 
 .navbar-khrave {
   @apply ml-2 text-2xl font-bold text-gray-800;
+}
+
+/* Home Page */
+.featuredTitle {
+  @apply flex justify-between items-center mb-8;
+}
+
+.foodRectangleImage {
+  @apply w-full h-full object-cover;
+}
+
+.foodRectangle {
+  @apply bg-[#d6b483] rounded-[2rem] overflow-hidden h-[18.125rem] w-[15.625rem] relative m-4;
+}
+
+.home-container {
+  @apply w-full;
+}
+
+.hero-container {
+  @apply flex items-center justify-center w-5/6;
+}
+
+.hero-text {
+  @apply font-teachers font-extrabold text-black text-8xl;
+}
+
+.htext-button-wrapper {
+  @apply flex flex-col w-1/2;
+}
+
+.create-post-button {
+  @apply flex items-center justify-between m-6 pl-40;
+}
+
+.create-post-button button {
+  @apply w-[180px] h-[65px] bg-secondary text-white py-2 px-4 rounded-[28px] hover:shadow-md text-[22px];
 }
 
 /* Shadcn stuff */

@@ -19,6 +19,7 @@ const config: Config = {
       },
       fontFamily: {
         nunito_sans: ['var(--font-nunito-sans)'],
+        teachers: ["Teachers", 'serif'],
       }
     },
   },

@@ -9,7 +9,7 @@ const Navbar = async () => {
 
   return (
     <div className="navbar-wrapper">
-      <div className="container mx-auto flex items-center justify-between px-4">
+      <div className="navbar-container flex items-center px-10">
         <Link href="/" className="flex items-center">
           {/* Put image here */}
           <span className="navbar-khrave">Khrave</span>

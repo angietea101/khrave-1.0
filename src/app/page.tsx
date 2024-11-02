@@ -1,11 +1,15 @@
 import User from "@/components/User";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./lib/auth";
+import Hero from "@/components/home/hero";
+import Features from "@/components/home/featured";
+import Recent from "@/components/home/recent";
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
   return (
-    <div>
+    <div className="home-container center-vertically">
+      <Hero/>
       <h1 className='text-4xl'>Home</h1>
 
       <h2>Client Session</h2>
