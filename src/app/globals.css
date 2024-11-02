@@ -39,7 +39,7 @@ body {
 }
 
 .wrapper h1 {
-  @apply text-7xl font-extrabold text-center m-3 text-white;
+  @apply cursor-default text-7xl font-extrabold text-center m-3 text-white;
 }
 
 .wrapper .input-box {
