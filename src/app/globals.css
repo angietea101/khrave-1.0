@@ -4,6 +4,9 @@
 
 :root {
   --background: #f8f5ed;
+  --destructive: #ff4d4f;
+  --destructive-foreground: #fff;
+  --border-destructive: #ff4d4f;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +25,7 @@ body {
 }
 
 /* Tailwind Utility Classes */
+/* Login / Register */
 .center {
   @apply flex items-center justify-center min-h-screen;
 }
@@ -35,7 +39,7 @@ body {
 }
 
 .wrapper {
-  @apply w-96 bg-primary-color text-white rounded-2xl p-6;
+  @apply w-96 bg-secondary text-white rounded-2xl p-6;
 }
 
 .wrapper h1 {
@@ -43,11 +47,11 @@ body {
 }
 
 .wrapper .input-box {
-  @apply text-2xl m-2 w-full h-12 bg-primary-color;
+  @apply text-2xl m-2 w-full h-12 bg-secondary;
 }
 
 .input-box input {
-  @apply border-solid border-2 border-primary-color outline-none bg-input-field w-full h-full rounded-xl text-input-field-color p-2 text-lg;
+  @apply border-solid border-2 border-secondary outline-none bg-input-field w-full h-full rounded-xl text-input-field-color p-2 text-lg;
 }
 
 .input-box input::placeholder {
@@ -59,7 +63,7 @@ body {
 }
 
 .login-button {
-  @apply text-xl m-1 w-1/3 h-11 mt-2 mb-2 bg-white rounded-full text-primary-color font-semibold;
+  @apply text-xl m-1 w-1/3 h-11 mt-2 mb-2 bg-white rounded-full text-secondary font-semibold;
 }
 
 .wrapper .register-link {
@@ -72,4 +76,28 @@ body {
 
 .error-text {
   @apply text-red-500 text-xs italic;
+}
+
+/* Navbar */
+.navbar-wrapper {
+  @apply bg-primary p-6 border-b border-s-zinc-200 fixed w-full z-10 top-0 pl-12 pr-12;
+}
+
+.navbar-login-button {
+  @apply bg-secondary text-white py-2 px-4 rounded-full;
+}
+
+.navbar-logout-button {
+  @apply bg-red-500 text-white py-2 px-4 rounded-full;
+}
+
+.navbar-khrave {
+  @apply ml-2 text-2xl font-bold text-gray-800;
+}
+
+/* Shadcn stuff */
+.destructive {
+  border: 1px solid var(--border-destructive);
+  background: var(--destructive);
+  color: var(--destructive-foreground);
 }

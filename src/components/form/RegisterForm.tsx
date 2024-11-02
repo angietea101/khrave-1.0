@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useToast } from '@/hooks/use-toast'
 
 
 // Define the schema with Zod
@@ -41,6 +42,7 @@ type FormSchemaType = z.infer<typeof formSchema>
 
 const RegisterForm: React.FC = () => {
     const router = useRouter();
+    const { toast } = useToast();
     const form = useForm<FormSchemaType>({
         resolver: zodResolver(formSchema),
     })
@@ -61,7 +63,11 @@ const RegisterForm: React.FC = () => {
         if (response.ok) {
             router.push('/login')
         } else {
-            console.log("Registration failed.")
+          toast({
+            title: "Error",
+            description: "Oops! Something went wrong.",
+            variant: "destructive"
+          })
         }
     }
 

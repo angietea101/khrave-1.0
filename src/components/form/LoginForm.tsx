@@ -6,8 +6,8 @@ import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
-// Define the form schema
 const FormSchema = z.object({
   username: z
     .string()
@@ -22,6 +22,7 @@ const FormSchema = z.object({
 
 const LoginForm = () => {
   const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -37,8 +38,13 @@ const LoginForm = () => {
       redirect: false,
     });
     if (loginData?.error) {
-      console.log(loginData.error);
+      toast({
+        title: "Error",
+        description: "Oops! Something went wrong.",
+        variant: "destructive"
+      })
     } else {
+      router.refresh();
       router.push('/'); 
     }
   };

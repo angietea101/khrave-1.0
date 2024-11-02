@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-import { Nunito_Sans } from '@next/font/google';
+import { Nunito_Sans } from 'next/font/google';
+import Navbar from "../components/Navbar";
+import { Toaster } from "@/components/ui/toaster";
+import Provider from "@/components/Provider";
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
@@ -16,15 +18,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${nunitoSans.variable} ${nunitoSans.variable} antialiased`}
-      >
-        {children}
+    <html lang='en'>
+      <body className={nunitoSans.className}>
+        <Provider>
+          <main className='h-screen flex flex-col justify-center items-center'>
+            <Navbar />
+            {children}
+          </main>
+          <Toaster />
+        </Provider>
       </body>
     </html>
   );
