@@ -10,6 +10,7 @@ export default async function Home() {
   return (
     <div className="home-container center-vertically">
       <Hero/>
+      <Features />
       <h1 className='text-4xl'>Home</h1>
 
       <h2>Client Session</h2>
