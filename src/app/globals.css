@@ -193,6 +193,114 @@ body {
   @apply rounded-[2rem] overflow-hidden h-52 w-52 relative;
 }
 
+/* Vendor Pages */
+.vendor-container {
+  @apply flex flex-col items-center w-full mt-20 pt-6 mb-16;
+}
+
+.top-wrapper {
+  @apply h-[25rem] flex items-center justify-center pt-0 relative;
+}
+
+.dog-image {
+  @apply mb-8 w-[clamp(10rem,20vw,25rem)] h-auto mx-6;
+}
+
+.vendor-rectangle-wrapper {
+  @apply w-[26rem] h-[13rem] bg-[#d6b483] rounded-[2rem] m-8 p-8 flex items-center justify-center flex-col;
+}
+
+.vendor-rectangle-wrapper h3 {
+  @apply text-white font-extrabold text-[clamp(1rem,10vw,1.5rem)] text-left;
+}
+
+.vendor-rectangle-wrapper p {
+  @apply text-white text-left mt-4;
+}
+
+.food-items {
+  @apply w-4/5 grid grid-cols-3 gap-3 p-2;
+}
+
+.vendor-food-rectangle {
+  @apply bg-[#d6b483] rounded-[2rem] overflow-hidden h-[11rem] w-[21rem] relative m-4 mb-2;
+}
+
+.link {
+  @apply text-black font-bold no-underline text-center mx-4 text-[1.4rem] p-2;
+}
+
+.rectangle-link-wrapper {
+  @apply flex relative justify-center items-center m-2 mb-2 p-2;
+}
+
+.rectangle-hover:hover {
+  @apply hover:bg-orange-200 transition-colors duration-300 bg-opacity-50 rounded-3xl;
+}
+
+.back-button {
+  @apply absolute top-[7rem] left-[4rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100;
+}
+
+.back-button-circle {
+  @apply w-[3rem] h-[3rem] rounded-full bg-black bg-opacity-30 flex items-center justify-center shadow-md;
+}
+
+.arrow {
+  @apply border border-white border-r-0 border-t-0 border-l-4 border-b-4 inline-block p-[3px];
+}
+
+.left {
+  @apply rotate-[45deg];
+}
+
+/* Individual Vendor Pgaes */
+.i-vendor-container {
+  @apply flex flex-col items-center w-full mt-20 pt-6 mb-16;
+}
+
+.i-vendor-wrapper {
+  @apply relative h-60 w-full overflow-hidden flex;
+}
+
+.i-vendor-images {
+  @apply h-full w-full object-cover;
+}
+
+.i-vendor-title {
+  @apply absolute bottom-0 left-24 text-white font-extrabold text-5xl m-4 mb-2 p-2 drop-shadow-lg;
+}
+
+.i-circle {
+  @apply w-20 h-20 rounded-full bg-white absolute left-4 bottom-8 flex items-center justify-center overflow-hidden shadow-lg;
+}
+
+.i-create-post-button {
+  @apply flex items-center justify-center w-20 h-20 rounded-full bg-green-600 text-white text-2xl no-underline shadow-lg fixed bottom-8 right-8 transition-colors duration-300;
+}
+
+.i-create-post-button:hover {
+  @apply bg-green-700;
+}
+
+.plus-sign {
+  @apply relative w-8 h-8;
+}
+
+.plus-sign::before,
+.plus-sign::after {
+  content: "";
+  @apply absolute bg-white rounded-md;
+}
+
+.plus-sign::before {
+  @apply w-1 h-full left-1/2 transform -translate-x-1/2;
+}
+
+.plus-sign::after {
+  @apply h-1 w-full top-1/2 transform -translate-y-1/2;
+}
+
 /* Shadcn stuff */
 .destructive {
   border: 1px solid var(--border-destructive);
