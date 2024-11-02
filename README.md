@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Khrave
 
-## Getting Started
+Welcome to **Khrave**! 🎉 A social web application for foodies where users can post unique custom orders from food chains and share their homemade recipes.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **User Authentication**: Sign up and log in securely.
+- **Custom Orders**: Post and share custom food orders from various chains.
+- **Recipe Sharing**: Share your favorite homemade recipes with the community.
+- **Session Tracking**: Users have a personalized experience with session management.
+- **Responsive Design**: Optimized for mobile and desktop use.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technologies
 
-## Learn More
+This project is built using the following technologies:
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**:
+  - React
+  - Next.js
+  - Tailwind CSS
+  - shadcn/ui (toast notif)
+- **Backend**:
+  - Node.js
+  - PostgreSQL
+  - Prisma
+- **Authentication**:
+  - NextAuth.js
+- **Styling**:
+  - Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To get started with **Khrave**, follow these steps:
 
-## Deploy on Vercel
+1. Clone the repository:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/angietea101/khrave.git
+   cd khrave
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up your environment variables:
+
+   Create a `.env` file in the root directory and add the required environment variables.
+
+4. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+
+## Usage
+
+Once the application is running, you can:
+
+- Sign up or log in to your account.
+- Create new custom orders and share them with others.
+- Browse through recipes shared by the community.
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to **Khrave**, please fork the repository and create a pull request.
+
+1. Fork the project
+2. Create your feature branch:
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. Commit your changes:
+
+   ```bash
+   git commit -m 'Add some feature'
+   ```
+
+4. Push to the branch:
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
