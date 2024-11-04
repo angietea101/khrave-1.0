@@ -1,3 +1,5 @@
+// src\app\(auth)\api\post\delete\route.ts
+
 import { NextResponse } from "next/server"; // Ensure you are importing the correct NextResponse
 import { authOptions } from "@/app/lib/auth";
 import { db } from "@/app/lib/db";
