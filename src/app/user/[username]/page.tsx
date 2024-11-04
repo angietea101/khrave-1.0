@@ -13,7 +13,7 @@ const UserPostsPage = async ({ params }: { params: Promise<Params> }) => {
 
     // Ensure that the session user matches the username
     if (!session || session.user.username !== username) {
-        return <h1>You do not have access to this page.</h1>;
+        return <h1 className="center not-auth">You do not have access to this page.</h1>;
     }
 
     return (

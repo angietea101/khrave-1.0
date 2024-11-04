@@ -21,7 +21,7 @@ const Page: React.FC = async () => {
     }
 
     return (
-        <h1 className="center">Please login to see this admin page.</h1>
+        <h1 className="center not-auth">Please login to see this admin page.</h1>
     );
 };
 
