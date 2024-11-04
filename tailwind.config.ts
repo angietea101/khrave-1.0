@@ -16,6 +16,7 @@ const config: Config = {
         'input-field-color': "#B9B1B1",
         primary: "#F8F5ED",
         secondary: "#D6B483",
+        secondaryhover: "#C59A6A",
         scbackground: 'hsl(var(--sc-background))',
         scforeground: 'hsl(var(--sc-foreground))',
         sccard: {

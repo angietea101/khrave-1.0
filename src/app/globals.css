@@ -165,6 +165,10 @@ body {
   @apply bg-secondary text-white py-2 px-4 rounded-full;
 }
 
+.navbar-login-button:hover {
+  @apply bg-secondaryhover;
+}
+
 .navbar-logout-button {
   @apply bg-red-500 text-white py-2 px-4 rounded-full;
 }
@@ -187,7 +191,7 @@ body {
 
 /* Home Page */
 .home-container {
-  @apply w-full mt-20 pt-6;
+  @apply w-full my-20 pt-6;
 }
 
 .home-body-container {
@@ -228,7 +232,7 @@ body {
 }
 
 .create-post-button button:hover {
-  @apply bg-[#e1c6a0];
+  @apply bg-secondaryhover;
 }
 
 /* Featured section */
@@ -254,7 +258,7 @@ body {
 }
 
 .food-rectangle:hover {
-  @apply bg-[#e1c6a0];
+  @apply bg-secondaryhover;
 }
 
 .food-rectangle h4 {
