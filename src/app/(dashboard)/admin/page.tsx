@@ -11,11 +11,11 @@ const Page: React.FC = async () => {
         return (
             <section className="center admin-container">
                 <h1>Admin page - welcome back, {session.user.username}!</h1>
-                <Button asChild>
+                <button className="default-button">
                     <Link href={`/user/${session.user.username}`}>
                         View Your Posts
                     </Link>
-                </Button>
+                </button>
             </section>
         );
     }
