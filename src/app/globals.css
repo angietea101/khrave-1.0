@@ -6,26 +6,65 @@
 
 :root {
   --background: #f8f5ed;
-  --destructive: #ff4d4f;
-  --destructive-foreground: #fff;
-  --border-destructive: #ff4d4f;
 
-  --sc-border-destructive: #f00;
-  --sc-destructive: #f00;
-  --sc-destructive-foreground: #fff;
-  --sc-primary: #0070f3;
-  --sc-primary-foreground: #ffffff;
-  --sc-secondary: #ff5722;
-  --sc-secondary-foreground: #ffffff;
-  --sc-background: #f9f9f9;
-  --sc-input: #eaeaea;
-  --sc-accent: #f0f0f0;
-  --sc-accent-foreground: #333;
+  /* Shadcn Variables */
+  --sc-background: 0 0% 100%;
+  --sc-foreground: 222.2 84% 4.9%;
+  --sc-card: 0 0% 100%;
+  --sc-card-foreground: 222.2 84% 4.9%;
+  --sc-popover: 0 0% 100%;
+  --sc-popover-foreground: 222.2 84% 4.9%;
+  --sc-primary: 222.2 47.4% 11.2%;
+  --sc-primary-foreground: 210 40% 98%;
+  --sc-secondary: 210 40% 96.1%;
+  --sc-secondary-foreground: 222.2 47.4% 11.2%;
+  --sc-muted: 210 40% 96.1%;
+  --sc-muted-foreground: 215.4 16.3% 46.9%;
+  --sc-accent: 210 40% 96.1%;
+  --sc-accent-foreground: 222.2 47.4% 11.2%;
+  --sc-destructive: 0 84.2% 60.2%;
+  --sc-destructive-foreground: 210 40% 98%;
+  --sc-border: 214.3 31.8% 91.4%;
+  --sc-input: 214.3 31.8% 91.4%;
+  --sc-ring: 222.2 84% 4.9%;
+  --sc-chart-1: 12 76% 61%;
+  --sc-chart-2: 173 58% 39%;
+  --sc-chart-3: 197 37% 24%;
+  --sc-chart-4: 43 74% 66%;
+  --sc-chart-5: 27 87% 67%;
+  --sc-radius: 0.5rem;
 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-nunito-sans);
+}
+
+.dark {
+  --sc-background: 222.2 84% 4.9%;
+  --sc-foreground: 210 40% 98%;
+  --sc-card: 222.2 84% 4.9%;
+  --sc-card-foreground: 210 40% 98%;
+  --sc-popover: 222.2 84% 4.9%;
+  --sc-popover-foreground: 210 40% 98%;
+  --sc-primary: 210 40% 98%;
+  --sc-primary-foreground: 222.2 47.4% 11.2%;
+  --sc-secondary: 217.2 32.6% 17.5%;
+  --sc-secondary-foreground: 210 40% 98%;
+  --sc-muted: 217.2 32.6% 17.5%;
+  --sc-muted-foreground: 215 20.2% 65.1%;
+  --sc-accent: 217.2 32.6% 17.5%;
+  --sc-accent-foreground: 210 40% 98%;
+  --sc-destructive: 0 62.8% 30.6%;
+  --sc-destructive-foreground: 210 40% 98%;
+  --sc-border: 217.2 32.6% 17.5%;
+  --sc-input: 217.2 32.6% 17.5%;
+  --sc-ring: 212.7 26.8% 83.9%;
+  --sc-chart-1: 220 70% 50%;
+  --sc-chart-2: 160 60% 45%;
+  --sc-chart-3: 30 80% 55%;
+  --sc-chart-4: 280 65% 60%;
+  --sc-chart-5: 340 75% 55%;
 }
 
 body {
@@ -404,71 +443,4 @@ body {
 
 .posts-for-title {
   @apply flex justify-center font-bold text-2xl;
-}
-
-/* Shadcn stuff */
-.sc-destructive {
-  border: 1px solid var(--sc-border-destructive);
-  background: var(--sc-destructive);
-  color: var(--sc-destructive-foreground);
-}
-
-.sc-button {
-  @apply py-2 px-4 rounded;
-}
-
-.sc-bg-primary {
-  background-color: var(--sc-primary);
-  color: var(--sc-primary-foreground);
-}
-
-.sc-bg-primary:hover {
-  background-color: rgba(var(--sc-primary), 0.9);
-}
-
-.sc-bg-destructive {
-  background-color: var(--sc-destructive);
-  color: var(--sc-destructive-foreground);
-}
-
-.sc-bg-destructive:hover {
-  background-color: rgba(var(--sc-destructive), 0.9);
-}
-
-.sc-border-input {
-  border-color: var(--sc-input);
-}
-
-.sc-bg-background {
-  background-color: var(--sc-background);
-}
-
-.sc-bg-secondary {
-  background-color: var(--sc-secondary);
-  color: var(--sc-secondary-foreground);
-}
-
-.sc-bg-secondary:hover {
-  background-color: rgba(var(--sc-secondary), 0.8);
-}
-
-.sc-hover\:bg-accent:hover {
-  background-color: var(--sc-accent);
-  color: var(--sc-accent-foreground);
-}
-
-.sc-text-primary {
-  color: var(--sc-primary);
-}
-
-.sc-text-primary:hover {
-  text-decoration: underline;
-}
-
-.sc-text-primary:hover {
-  text-decoration: underline;
-}
-
-.sc-destructive-toast {
-  @apply border-red-500 bg-red-500 text-neutral-50 dark:border-red-900 dark:bg-red-900 dark:text-neutral-50;
 }
