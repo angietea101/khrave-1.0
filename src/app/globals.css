@@ -379,6 +379,20 @@ body {
   @apply mr-0;
 }
 
+/* Dashbaord Admin */
+.admin-container {
+  @apply flex-col;
+}
+
+/* User Post Page */
+.user-post-page-container {
+  @apply flex flex-col justify-center items-center w-5/6;
+}
+
+.posts-for-title {
+  @apply flex justify-center font-bold text-2xl;
+}
+
 /* Shadcn stuff */
 .destructive {
   border: 1px solid var(--border-destructive);
