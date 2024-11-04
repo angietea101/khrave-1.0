@@ -1,4 +1,4 @@
-import { db } from "@/app/lib/db";
+import { Post as PostType } from '@/types/post';
 import Post from "@/components/Post";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,30 +20,17 @@ const imageMap = {
     },
 };
 
-async function getPosts(vendorName: string) {
-    const posts = await db.post.findMany({
-        where: { 
-            published: true,
-            vendor: {
-                vendorName: {
-                    equals: vendorName,
-                    mode: 'insensitive', 
-                }
-            }
-        },
-        include: {
-            author: {
-                select: { username: true }
-            },
-            vendor: {
-                select: { vendorName: true }
-            }
-        },
-        orderBy: {
-            createdAt: 'desc' 
-        }
+async function fetchPosts(vendorName: string) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/post?vendorName=${vendorName}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
     });
-    return posts;
+
+    if (!res.ok) {
+        throw new Error('Failed to fetch posts');
+    }
+
+    return res.json();
 }
 
 export default async function VendorPage({
@@ -52,7 +39,7 @@ export default async function VendorPage({
     params: { vendorName: string };
 }) {
     const { vendorName } = await params;
-    const posts = await getPosts(vendorName);
+    const posts = await fetchPosts(vendorName);
     
     const vendor = vendorName.toLowerCase() as keyof typeof imageMap;
     const vendorImages = imageMap[vendor];
@@ -85,7 +72,7 @@ export default async function VendorPage({
             <div className="post-wall-wrapper">
                 <div className="post-wall">
                     {posts.length > 0 ? (
-                        posts.map((post) => (
+                        posts.map((post: PostType) => (
                             <Post 
                                 key={post.id}
                                 id={post.id}

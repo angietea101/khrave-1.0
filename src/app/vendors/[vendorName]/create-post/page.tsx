@@ -17,7 +17,7 @@ export default function CreatePost() {
         event.preventDefault();
         
         try {
-            await fetch('/api/create-post', {
+            await fetch('/api/post/create', {
                 method: 'POST', 
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title, content, vendorName: vendorName })

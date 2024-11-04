@@ -12,8 +12,6 @@ import dunkyImage from '../../../public/dunkn.png';
 import gyroImage from '../../../public/gyro.png';
 
 const page = async () => {
-  const session = await getServerSession(authOptions);
-
   return (
     <main className={'vendor-container'}>
         <Link className={'back-button'} href="/">
