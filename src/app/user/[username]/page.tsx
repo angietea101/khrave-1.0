@@ -18,7 +18,7 @@ const UserPostsPage = async ({ params }: { params: Promise<Params> }) => {
 
     return (
         <section className="center">
-            <UserPosts username={username} />;
+            <UserPosts username={username} />
         </section>
     )
 };

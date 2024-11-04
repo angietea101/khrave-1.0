@@ -9,6 +9,19 @@
   --destructive: #ff4d4f;
   --destructive-foreground: #fff;
   --border-destructive: #ff4d4f;
+
+  --sc-border-destructive: #f00;
+  --sc-destructive: #f00;
+  --sc-destructive-foreground: #fff;
+  --sc-primary: #0070f3;
+  --sc-primary-foreground: #ffffff;
+  --sc-secondary: #ff5722;
+  --sc-secondary-foreground: #ffffff;
+  --sc-background: #f9f9f9;
+  --sc-input: #eaeaea;
+  --sc-accent: #f0f0f0;
+  --sc-accent-foreground: #333;
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -394,8 +407,68 @@ body {
 }
 
 /* Shadcn stuff */
-.destructive {
-  border: 1px solid var(--border-destructive);
-  background: var(--destructive);
-  color: var(--destructive-foreground);
+.sc-destructive {
+  border: 1px solid var(--sc-border-destructive);
+  background: var(--sc-destructive);
+  color: var(--sc-destructive-foreground);
+}
+
+.sc-button {
+  @apply py-2 px-4 rounded;
+}
+
+.sc-bg-primary {
+  background-color: var(--sc-primary);
+  color: var(--sc-primary-foreground);
+}
+
+.sc-bg-primary:hover {
+  background-color: rgba(var(--sc-primary), 0.9);
+}
+
+.sc-bg-destructive {
+  background-color: var(--sc-destructive);
+  color: var(--sc-destructive-foreground);
+}
+
+.sc-bg-destructive:hover {
+  background-color: rgba(var(--sc-destructive), 0.9);
+}
+
+.sc-border-input {
+  border-color: var(--sc-input);
+}
+
+.sc-bg-background {
+  background-color: var(--sc-background);
+}
+
+.sc-bg-secondary {
+  background-color: var(--sc-secondary);
+  color: var(--sc-secondary-foreground);
+}
+
+.sc-bg-secondary:hover {
+  background-color: rgba(var(--sc-secondary), 0.8);
+}
+
+.sc-hover\:bg-accent:hover {
+  background-color: var(--sc-accent);
+  color: var(--sc-accent-foreground);
+}
+
+.sc-text-primary {
+  color: var(--sc-primary);
+}
+
+.sc-text-primary:hover {
+  text-decoration: underline;
+}
+
+.sc-text-primary:hover {
+  text-decoration: underline;
+}
+
+.sc-destructive-toast {
+  @apply border-red-500 bg-red-500 text-neutral-50 dark:border-red-900 dark:bg-red-900 dark:text-neutral-50;
 }
