@@ -1,3 +1,5 @@
+// src\app\(auth)\api\post\create\route.ts
+
 import { authOptions } from "@/app/lib/auth";
 import { db } from "@/app/lib/db";
 import { getServerSession } from "next-auth";
