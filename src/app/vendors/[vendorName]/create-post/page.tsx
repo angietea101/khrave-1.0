@@ -1,11 +1,12 @@
-// src/app/vendors/[vendorName]/create-post/page.tsx
-
-"use client"
+"use client";
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useSession } from "next-auth/react";
+
+const MAX_TITLE_LENGTH = 30;
+const MAX_CONTENT_LENGTH = 500; 
 
 export default function CreatePost() {
     const { data: session, status } = useSession();
@@ -15,9 +16,26 @@ export default function CreatePost() {
     const searchParams = useSearchParams();
     const vendorName = searchParams.get('vendorName');
 
+    // Handle title change with character limit
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        if (value.length <= MAX_TITLE_LENGTH) {
+            setTitle(value);
+        }
+    };
+
+    // Handle textarea change
+    const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const value = e.target.value;
+        if (value.length <= MAX_CONTENT_LENGTH) {
+            setContent(value);
+        }
+    };
+
+    // Handle form submission
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
+
         try {
             await fetch('/api/post/create', {
                 method: 'POST', 
@@ -50,14 +68,14 @@ export default function CreatePost() {
                 >
                     View Feed
                 </Link>
-                <h1 className="">Create Post for {vendorName}</h1>
+                <h1>Create Post for {vendorName}</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <input
                             type="text"
                             id="title"
                             value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            onChange={handleTitleChange}
                             required
                             placeholder="Title"
                         />
@@ -66,20 +84,25 @@ export default function CreatePost() {
                         <textarea
                             id="content"
                             value={content}
-                            onChange={(e) => setContent(e.target.value)}
+                            onChange={handleContentChange}
                             required
-                            placeholder= "Body"
+                            placeholder="Body"
                         />
+                        <div className="text-right text-sm text-gray-600">
+                            {content.length}/{MAX_CONTENT_LENGTH} characters
+                        </div>
                     </div>
-                    <button
-                        type="submit"
-                        className=""
-                    >
-                        Submit
-                    </button>
+                    <div className='p-button-wrapper'>
+                        <button
+                            type="submit"
+                            disabled={content.length === 0 || content.length > MAX_CONTENT_LENGTH}
+                            className="submit-button"
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </form>
             </div>
         </main>
     );
-    
 }

@@ -420,7 +420,7 @@ body {
 }
 
 .p-wrapper {
-  @apply bg-secondary p-8 pb-14 m-32 rounded-3xl shadow-md max-w-2xl w-full;
+  @apply bg-secondary p-8 pb-10 m-32 rounded-3xl shadow-md max-w-2xl w-full;
 }
 
 .p-wrapper h1 {
@@ -432,15 +432,19 @@ body {
 }
 
 .p-wrapper input {
-  @apply w-full p-4 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply w-full p-4 py-5 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
 }
 
 .p-wrapper textarea {
-  @apply w-full p-4 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply w-full p-4 h-32 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.p-button-wrapper {
+  @apply flex justify-end;
 }
 
 .p-wrapper button {
-  @apply w-full bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out;
+  @apply w-3/12 bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out;
 }
 
 .post-wall-wrapper {
