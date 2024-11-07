@@ -250,11 +250,29 @@ body {
 
 /* Recent orders section */
 .recent-picture-gallery {
-  @apply pl-16 pr-16 grid grid-cols-4 gap-4;
+  @apply pl-8 pr-8 grid grid-cols-4 gap-4 max-w-screen-xl mx-auto;
+}
+
+@media (max-width: 1400px) {
+  .recent-picture-gallery {
+    @apply grid-cols-3 gap-3 pl-8 pr-8;
+  }
+}
+
+@media (max-width: 1110px) {
+  .recent-picture-gallery {
+    @apply grid-cols-2 gap-2 pl-8 pr-8;
+  }
+}
+
+@media (max-width: 820px) {
+  .recent-picture-gallery {
+    @apply grid-cols-1 gap-2 pl-8 pr-8;
+  }
 }
 
 .food-rectangle {
-  @apply flex flex-col items-center justify-center bg-[#d6b483] rounded-[2rem] overflow-hidden h-[20rem] w-[15.625rem] relative m-4;
+  @apply flex flex-col items-center justify-center bg-[#d6b483] rounded-[2rem] overflow-hidden h-[18rem] w-[14rem] relative m-4;
 }
 
 .food-rectangle:hover {
@@ -274,7 +292,7 @@ body {
 }
 
 .image-shape {
-  @apply rounded-[2rem] overflow-hidden h-52 w-52 relative;
+  @apply rounded-[2rem] overflow-hidden h-48 w-48 relative;
 }
 
 /* Vendor Pages */
