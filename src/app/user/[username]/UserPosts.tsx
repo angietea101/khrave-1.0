@@ -63,7 +63,7 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
         <div className='user-post-page-container'>
             <h1 className='posts-for-title'>Posts for @{username}</h1>
             {posts.length > 0 ? (
-                <ul>
+                <ul className='post-display-wrapper'>
                     {posts.map((post) => (
                         <li key={post.id} className="relative">
                             <Post 

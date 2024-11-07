@@ -150,7 +150,7 @@ body {
 
 /* Navbar */
 .navbar-wrapper {
-  @apply bg-primary pt-6 pb-6 border-s-zinc-200 fixed w-full z-10 top-0 pl-0 pr-0;
+  @apply bg-primary pt-6 pb-6 border-s-zinc-200 fixed w-full z-50 top-0 pl-0 pr-0;
 }
 
 .navbar-container {
@@ -460,7 +460,7 @@ body {
 }
 
 .no-posts {
-  @apply text-red-400 font-bold m-72;
+  @apply text-red-400 font-bold mt-56;
 }
 
 /* Individual Posts */
@@ -474,6 +474,10 @@ body {
 
 .post-container p {
   @apply text-white mt-4;
+}
+
+.post-display-wrapper {
+  @apply w-4/5 min-w-96;
 }
 
 .subject-wrapper {
@@ -495,7 +499,7 @@ body {
 
 /* User Post Page */
 .user-post-page-container {
-  @apply flex flex-col justify-center items-center w-5/6;
+  @apply flex flex-col justify-center items-center w-5/6 m-32;
 }
 
 .posts-for-title {
