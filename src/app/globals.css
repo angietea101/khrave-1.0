@@ -250,24 +250,27 @@ body {
 
 /* Recent orders section */
 .recent-picture-gallery {
-  @apply pl-8 pr-8 grid grid-cols-4 gap-4 max-w-screen-xl mx-auto;
+  @apply pl-8 pr-8 grid gap-4 grid-cols-1 max-w-screen-xl mx-auto; /* Default mobile styles */
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 740px) {
+  /* md breakpoint */
   .recent-picture-gallery {
-    @apply grid-cols-3 gap-3 pl-8 pr-8;
+    @apply grid-cols-2;
   }
 }
 
-@media (max-width: 1110px) {
+@media (min-width: 1020px) {
+  /* l breakpoint */
   .recent-picture-gallery {
-    @apply grid-cols-2 gap-2 pl-8 pr-8;
+    @apply grid-cols-3;
   }
 }
 
-@media (max-width: 820px) {
+@media (min-width: 1300px) {
+  /* xl breakpoint */
   .recent-picture-gallery {
-    @apply grid-cols-1 gap-2 pl-8 pr-8;
+    @apply grid-cols-4;
   }
 }
 

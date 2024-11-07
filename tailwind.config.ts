@@ -66,7 +66,14 @@ const config: Config = {
   			lg: 'var(--sc-radius)',
   			md: 'calc(var(--sc-radius) - 2px)',
   			sm: 'calc(var(--sc-radius) - 4px)'
-  		}
+  		},
+      screens: {
+        'sm': '640px',    // Small devices
+        'md': '740px',    // Medium devices 
+        'lg': '1020px',   // Large devices 
+        'xl': '1300px',   // Extra-large devices
+        '2xl': '1536px',  // 2X extra-large devices 
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
