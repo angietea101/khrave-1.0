@@ -9,7 +9,7 @@ type PostProps = {
 };
 
 export default function Post({ title, content, author }: PostProps) {
-    const formattedContent = content?.split('\n').map((line, index) => (
+    const formattedContent = content?.trim().split('\n').map((line, index) => (
         <span key={index}>
             {line}
             <br />
