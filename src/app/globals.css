@@ -416,15 +416,15 @@ body {
 
 /* Create Post */
 .view-feed-button {
-  @apply bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out mb-5 inline-block text-lg font-semibold text-center;
+  @apply bg-primary text-secondary py-2 px-4 rounded-full shadow-md hover:bg-yellow-800 hover:text-white transition duration-300 ease-in-out inline-block text-lg font-semibold text-center;
 }
 
 .p-wrapper {
-  @apply bg-secondary p-8 pb-14 rounded-3xl shadow-md max-w-md w-full;
+  @apply bg-secondary p-8 pb-14 m-32 rounded-3xl shadow-md max-w-2xl w-full;
 }
 
 .p-wrapper h1 {
-  @apply text-3xl font-semibold text-white m-5 text-center;
+  @apply text-3xl font-semibold text-white m-2 text-center;
 }
 
 .p-wrapper label {
@@ -437,6 +437,10 @@ body {
 
 .p-wrapper textarea {
   @apply w-full p-4 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.p-wrapper button {
+  @apply w-full bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out;
 }
 
 .post-wall-wrapper {

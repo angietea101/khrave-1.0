@@ -1,3 +1,5 @@
+// src/components/Post.tsx
+
 type PostProps = {
     id: number;
     title: string;
@@ -6,7 +8,14 @@ type PostProps = {
     vendor: { vendorName: string };
 };
 
-export default function Post({ id, title, content, author, vendor }: PostProps) {
+export default function Post({ title, content, author }: PostProps) {
+    const formattedContent = content?.split('\n').map((line, index) => (
+        <span key={index}>
+            {line}
+            <br />
+        </span>
+    ));
+    
     return (
         <div className={''}>
             <div className={'post-container'}>
@@ -15,7 +24,7 @@ export default function Post({ id, title, content, author, vendor }: PostProps) 
                     <h3>|</h3>
                     <h3>@{author.username}</h3>
                 </div>
-                <p>{content}</p>
+                <p>{formattedContent}</p>
             </div>
         </div>
     );

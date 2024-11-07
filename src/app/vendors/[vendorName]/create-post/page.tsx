@@ -1,3 +1,5 @@
+// src/app/vendors/[vendorName]/create-post/page.tsx
+
 "use client"
 
 import { useState } from 'react';
@@ -51,33 +53,27 @@ export default function CreatePost() {
                 <h1 className="">Create Post for {vendorName}</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label htmlFor="title" className="">
-                            Title:
-                        </label>
                         <input
                             type="text"
                             id="title"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             required
-                            placeholder="Enter post title"
+                            placeholder="Title"
                         />
                     </div>
                     <div>
-                        <label htmlFor="content">
-                            Content:
-                        </label>
                         <textarea
                             id="content"
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                             required
-                            placeholder= "Write your content here..."
+                            placeholder= "Body"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out"
+                        className=""
                     >
                         Submit
                     </button>
