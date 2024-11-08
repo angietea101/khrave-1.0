@@ -16,6 +16,11 @@ export default function CreatePost() {
     const searchParams = useSearchParams();
     const vendorName = searchParams.get('vendorName');
 
+    function capitalizeWords(name: string | null): string {
+        if (!name) return '';
+        return name.replace(/\b\w/g, char => char.toUpperCase());
+    }
+
     // Handle title change with character limit
     const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
@@ -68,8 +73,8 @@ export default function CreatePost() {
                 >
                     View Feed
                 </Link>
-                <h1>Create Post for {vendorName}</h1>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <h1>Create Post for {capitalizeWords(vendorName)}</h1>
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <input
                             type="text"
@@ -88,18 +93,20 @@ export default function CreatePost() {
                             required
                             placeholder="Body"
                         />
-                        <div className="text-right text-sm text-gray-600">
+                    </div>
+                    <div className='p-bottom-wrapper'>
+                        <div className="ml-2 text-left text-sm text-gray-600">
                             {content.length}/{MAX_CONTENT_LENGTH} characters
                         </div>
-                    </div>
-                    <div className='p-button-wrapper'>
-                        <button
-                            type="submit"
-                            disabled={content.length === 0 || content.length > MAX_CONTENT_LENGTH}
-                            className="submit-button"
-                        >
-                            Submit
-                        </button>
+                        <div className='p-button-wrapper'>
+                            <button
+                                type="submit"
+                                disabled={content.length === 0 || content.length > MAX_CONTENT_LENGTH}
+                                className="submit-button"
+                            >
+                                Submit
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

@@ -424,7 +424,7 @@ body {
 }
 
 .p-wrapper h1 {
-  @apply text-3xl font-semibold text-white m-2 text-center;
+  @apply text-3xl font-semibold text-white m-2 mb-4 text-center;
 }
 
 .p-wrapper label {
@@ -436,15 +436,23 @@ body {
 }
 
 .p-wrapper textarea {
-  @apply w-full p-4 h-32 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  @apply w-full p-4 h-40 rounded-3xl shadow border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.character-count {
+  @apply text-sm text-gray-600;
 }
 
 .p-button-wrapper {
-  @apply flex justify-end;
+  @apply justify-end w-1/5;
 }
 
 .p-wrapper button {
-  @apply w-3/12 bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out;
+  @apply w-full bg-primary text-secondary text-xl font-semibold rounded-full py-3 hover:bg-yellow-800 transition duration-300 ease-in-out;
+}
+
+.p-bottom-wrapper {
+  @apply flex justify-between;
 }
 
 .post-wall-wrapper {
