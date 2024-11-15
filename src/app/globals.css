@@ -489,11 +489,11 @@ body {
 }
 
 .subject-wrapper {
-  @apply flex items-center mr-8;
+  @apply flex items-center mr-8 w-4/5 flex-wrap;
 }
 
 .subject-wrapper h3 {
-  @apply mr-4;
+  @apply mr-4 text-base leading-tight break-all;
 }
 
 .subject-wrapper h3:last-child {
@@ -507,7 +507,7 @@ body {
 
 /* User Post Page */
 .user-post-page-container {
-  @apply flex flex-col justify-center items-center w-5/6 m-32;
+  @apply flex flex-col justify-center items-center w-5/6 m-32 max-w-6xl;
 }
 
 .posts-for-title {
