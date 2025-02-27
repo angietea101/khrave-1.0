@@ -22,6 +22,8 @@ export default function PostForm({
     const { data: session, status } = useSession();
     const [title, setTitle] = useState(initialTitle);
     const [content, setContent] = useState(initialContent);
+    const [image, setImage] = useState<File | null>(null);
+    const [preview, setPreview] = useState<string | null>(null);
     const router = useRouter();
     const searchParams = useSearchParams();
     const vendor = vendorName || searchParams.get('vendorName');
@@ -51,21 +53,36 @@ export default function PostForm({
             setContent(value);
         }
     };
-
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setImage(file);
+            setPreview(URL.createObjectURL(file)); 
+        }
+    };
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
+    
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("vendorName", vendor || "");
+        if (image) {
+            formData.append("image", image);
+        }
+    
         try {
             let updatedPost;
             if (isEditing && postId) {
                 // Edit post logic
+                formData.append("postId", String(postId));
+    
                 const response = await fetch('/api/post/edit', {
                     method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ postId, newTitle: title, newContent: content }),
+                    body: formData, 
                 });
+    
                 updatedPost = await response.json();
-
                 if (onEditComplete && updatedPost) {
                     onEditComplete(updatedPost);
                 }
@@ -74,19 +91,22 @@ export default function PostForm({
                 // Create post logic
                 const response = await fetch('/api/post/create', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ title, content, vendorName: vendor }),
+                    body: formData, 
                 });
+    
                 updatedPost = await response.json();
                 router.push(`/vendors/${vendor}`);
             }
         } catch (error) {
             console.error(error);
         }
-
+    
         setTitle('');
         setContent('');
+        setImage(null);
+        setPreview(null);
     };
+    
 
     const handleClose = () => {
         if (isEditing) {
@@ -132,6 +152,8 @@ export default function PostForm({
                             required
                             placeholder="Body"
                         />
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
+                        {preview && <img src={preview} alt="Preview" className="preview-img" />} 
                     </div>
                     <div className='p-bottom-wrapper'>
                         <div className="ml-2 text-left text-sm text-gray-600">

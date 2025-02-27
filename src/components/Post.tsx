@@ -4,11 +4,12 @@ type PostProps = {
     id: number;
     title: string;
     content?: string;
+    image?: string;
     author: { username: string };
     vendor: { vendorName: string };
 };
 
-export default function Post({ title, content, author }: PostProps) {
+export default function Post({ title, content, image, author }: PostProps) {
     const formattedContent = content?.trim().split('\n').map((line, index) => (
         <span key={index}>
             {line}
@@ -24,6 +25,13 @@ export default function Post({ title, content, author }: PostProps) {
                     <h3>|</h3>
                     <h3>@{author.username}</h3>
                 </div>
+                {image && (
+                <img 
+                    src={image} 
+                    alt={`Image for ${title}`} 
+                    className="post-image"
+                />
+                )}
                 <p>{formattedContent}</p>
             </div>
         </div>

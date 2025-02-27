@@ -78,6 +78,7 @@ export default async function VendorPage({
                                 id={post.id}
                                 title={post.title}
                                 content={post.content}
+                                image={post.image}
                                 author={post.author}
                                 vendor={post.vendor}
                             />
