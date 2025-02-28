@@ -465,31 +465,6 @@ body {
   @apply w-3/4 relative;
 }
 
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-
-.content-wrapper:has(img) {
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: space-between;
-}
-
-.content-wrapper:has(img) span {
-  width: 50%;
-}
-
-.post-wall img {
-  max-width: 50%;
-  object-fit: "contain";
-  max-height: 16rem;
-  border-radius: 0.75rem;
-
-  margin-top: 1rem;
-}
-
 .cat-sando {
   @apply w-1/5 h-1/5 m-32 ml-32 mr-10;
 }
@@ -525,6 +500,52 @@ body {
 
 .subject-wrapper h3:last-child {
   @apply mr-0;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content-wrapper:has(img) {
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content-wrapper:has(img) p {
+  flex: 1;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  min-width: 0;
+}
+
+.content-wrapper img {
+  max-width: 50%;
+  object-fit: contain;
+  max-height: 20rem;
+  border-radius: 0.75rem;
+
+  margin-top: 1rem;
+}
+
+@media (max-width: 740px) {
+  .content-wrapper:has(img) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .content-wrapper:has(img) p {
+    width: 100%;
+  }
+
+  .content-wrapper img {
+    max-width: 100%;
+    max-height: 12rem;
+    align-self: center;
+  }
 }
 
 /* Dashbaord Admin */
