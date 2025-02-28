@@ -67,6 +67,8 @@
   --sc-chart-5: 340 75% 55%;
 }
 
+/* CSS */
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -381,7 +383,7 @@ body {
 }
 
 .i-create-post-button {
-  @apply flex items-center justify-center w-20 h-20 rounded-full bg-green-600 text-white text-2xl no-underline shadow-lg fixed bottom-8 right-8 transition-colors duration-300;
+  @apply flex items-center justify-center w-20 h-20 rounded-full bg-green-600 text-white text-2xl no-underline shadow-lg fixed bottom-8 right-8 transition-colors duration-300 z-10;
 }
 
 .i-create-post-button:hover {
@@ -456,11 +458,36 @@ body {
 }
 
 .post-wall-wrapper {
-  @apply w-5/6 flex justify-center;
+  @apply w-full flex justify-center;
 }
 
 .post-wall {
-  @apply w-1/2;
+  @apply w-3/4 relative;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.content-wrapper:has(img) {
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.content-wrapper:has(img) span {
+  width: 50%;
+}
+
+.post-wall img {
+  max-width: 50%;
+  object-fit: "contain";
+  max-height: 16rem;
+  border-radius: 0.75rem;
+
+  margin-top: 1rem;
 }
 
 .cat-sando {

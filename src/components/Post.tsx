@@ -25,14 +25,16 @@ export default function Post({ title, content, image, author }: PostProps) {
                     <h3>|</h3>
                     <h3>@{author.username}</h3>
                 </div>
-                {image && (
-                <img 
-                    src={image} 
-                    alt={`Image for ${title}`} 
-                    className="post-image"
-                />
-                )}
-                <p>{formattedContent}</p>
+                <div className="content-wrapper">
+                    <p>{formattedContent}</p> 
+                    {image && (
+                    <img 
+                        src={image} 
+                        alt={`Image for ${title}`} 
+                        className="post-image"
+                    />
+                    )}
+                </div>
             </div>
         </div>
     );

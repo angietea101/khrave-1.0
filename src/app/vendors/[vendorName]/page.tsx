@@ -87,7 +87,6 @@ export default async function VendorPage({
                         <p className="no-posts center-vertically">There are zero posts :(</p>
                     )}
                 </div>
-                <Image className={'cat-sando'} src={'/cat-sando.png'} alt="cat sando" width={300} height={300} />
             </div>
         </div>
     );
