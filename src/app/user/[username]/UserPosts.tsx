@@ -22,6 +22,7 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
                     return response.json();
                 })
                 .then((data) => {
+                    console.log('Fetched posts:', data);
                     setPosts(data);
                     setLoading(false);
                 })
@@ -97,10 +98,12 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
                                     id={post.id}
                                     title={post.title}
                                     content={post.content}
+                                    image={post.image}
                                     author={post.author}
                                     vendor={post.vendor}
+                                    isUserPost={true}
                                 />
-                                <div className="absolute top-6 right-4 flex items-center space-x-2">
+                                <div className="absolute top-6 right-8 flex items-center space-x-2">
                                     <button 
                                         onClick={() => setEditingPost(post.id)}
                                         className='edit-icon'

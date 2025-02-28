@@ -7,15 +7,18 @@ type PostProps = {
     image?: string;
     author: { username: string };
     vendor: { vendorName: string };
+    isUserPost?: boolean;
 };
 
-export default function Post({ title, content, image, author }: PostProps) {
+export default function Post({ title, content, image, author, isUserPost }: PostProps) {
     const formattedContent = content?.trim().split('\n').map((line, index) => (
         <span key={index}>
             {line}
             <br />
         </span>
     ));
+
+    console.log(`image ${image}`)
     
     return (
         <div className={''}>
@@ -25,7 +28,7 @@ export default function Post({ title, content, image, author }: PostProps) {
                     <h3>|</h3>
                     <h3>@{author.username}</h3>
                 </div>
-                <div className="content-wrapper">
+                <div className={`content-wrapper ${isUserPost ? "post-margin" : ""}`}>
                     <p>{formattedContent}</p> 
                     {image && (
                     <img 

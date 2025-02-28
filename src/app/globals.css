@@ -483,7 +483,7 @@ body {
 }
 
 .post-container p {
-  @apply text-white mt-4;
+  @apply text-white;
 }
 
 .post-display-wrapper {
@@ -506,6 +506,17 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 0.5rem;
+}
+
+.post-margin {
+  margin-top: 2rem;
+}
+
+@media (max-width: 740px) {
+  .post-margin {
+    margin-top: 1rem;
+  }
 }
 
 .content-wrapper:has(img) {
@@ -527,8 +538,6 @@ body {
   object-fit: contain;
   max-height: 20rem;
   border-radius: 0.75rem;
-
-  margin-top: 1rem;
 }
 
 @media (max-width: 740px) {
