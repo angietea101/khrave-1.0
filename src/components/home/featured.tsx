@@ -1,13 +1,35 @@
-import React from "react";
+'use client'
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ArrowRight from '@/components/ui/ArrowRight'
+import ArrowRight from '@/components/ui/ArrowRight';
 
 const Features = () => {
-    return(
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const featuredFoodSpots = [
+        { href: "vendors/subway", src: "/subway.png", alt: "Subway", width: 200, height: 200 },
+        { href: "vendors/chipotle", src: "/chipotle1.png", alt: "Chipotle logo", width: 100, height: 100 },
+        { href: "vendors/dominos", src: "/dominos.png", alt: "Domino's Pizza logo", width: 100, height: 100 },
+        { href: "vendors/dunkin", src: "/dunkin.png", alt: "Dunkin' Donuts logo", width: 100, height: 100 },
+        { href: "vendors/frostbites", src: "/frostbites.png", alt: "Frostbites logo", width: 100, height: 100 },
+        { href: "vendors/cava", src: "/cava.png", alt: "Cava logo", width: 100, height: 100 }
+    ];
+
+    return (
         <div className="home-body-container">
             <div className={'section-title-wrapper'}>
-                <p className="">featured food spots</p>
+                <p>featured food spots</p>
                 <Link href={"vendors"} className="browse-wrapper">
                     <span>browse all</span>
                     <ArrowRight />
@@ -15,44 +37,16 @@ const Features = () => {
             </div>
 
             <div className="featured-picture-gallery">
-                <Link href="vendors/subway" className="featured-container">
-                    <div className="featured-image">
-                        <Image src="/subway.png" alt="Subway" height={200} width={200} />
-                    </div>
-                </Link>
-
-                <Link href="vendors/chipotle" className="featured-container">
-                    <div className="featured-image">
-                        <Image src="/chipotle1.png" alt="Chipotle logo" height={100} width={100} />
-                    </div>
-                </Link>
-
-                <Link href="vendors/dominos" className="featured-container">
-                    <div className="featured-image">
-                        <Image src="/dominos.png" alt="Domino's Pizza logo" height={100} width={100} />
-                    </div>
-                </Link>
-
-                <Link href="vendors/dunkin" className="featured-container">
-                    <div className="featured-image">
-                        <Image src="/dunkin.png" alt="Dunkin' Donuts logo" height={100} width={100} />
-                    </div>
-                </Link>
-
-                <Link href="vendors/frostbites" className="featured-container">
-                    <div className="featured-image">
-                      <Image src="/frostbites.png" alt="Frostbites logo" height={100} width={100} />
-                    </div>
-                </Link>
-
-                <Link href="vendors/cava" className="featured-container">
-                    <div className="featured-image">
-                        <Image src="/cava.png" alt="Cava logo" height={100} width={100} />
-                    </div>
-                </Link>
+                {featuredFoodSpots.slice(0, windowWidth < 740 ? 3 : windowWidth < 1200 ? 5 : featuredFoodSpots.length).map((spot, index) => (
+                    <Link key={index} href={spot.href} className="featured-container">
+                        <div className="featured-image">
+                            <Image src={spot.src} alt={spot.alt} height={spot.height} width={spot.width} />
+                        </div>
+                    </Link>
+                ))}
             </div>
         </div>
-    )
+    );
 }
 
 export default Features;
