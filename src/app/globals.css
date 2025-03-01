@@ -98,7 +98,7 @@ body {
 }
 
 .center-vertically {
-  @apply flex flex-col items-center w-full;
+  @apply flex flex-col items-center mx-auto;
 }
 
 .default-button {
@@ -193,11 +193,18 @@ body {
 
 /* Home Page */
 .home-container {
-  @apply w-full my-20 pt-6;
+  @apply w-full max-w-[2000] my-20 pt-6;
 }
 
 .home-body-container {
-  @apply flex flex-col justify-between w-5/6 mx-auto pt-5 pb-5 pl-12 pr-12 mt-10 mb-10;
+  @apply flex flex-col justify-between w-full mx-auto pt-5 pb-5 pl-12 pr-12 mt-10 mb-10 max-w-[2000];
+}
+
+@media (min-width: 1020px) {
+  /* l breakpoint */
+  .home-body-container {
+    @apply w-[83%];
+  }
 }
 
 .section-title-wrapper {
@@ -214,15 +221,31 @@ body {
 
 /* Hero section */
 .hero-container {
-  @apply flex items-center justify-center w-full;
+  @apply flex items-center justify-center max-w-[2000];
 }
 
 .htext-button-wrapper {
   @apply flex flex-col w-1/2;
 }
 
-.hero-text {
-  @apply font-teachers font-extrabold text-black text-8xl;
+.hero-container h1 {
+  @apply font-teachers font-extrabold text-black text-xl;
+}
+
+.hero-icon-wrapper {
+  @apply w-[20%] max-w-[350];
+}
+
+@media (min-width: 740px) {
+  .hero-container h1 {
+    @apply text-5xl;
+  }
+}
+
+@media (min-width: 1020px) {
+  .hero-container h1 {
+    @apply text-8xl;
+  }
 }
 
 .create-post-button {
@@ -239,15 +262,23 @@ body {
 
 /* Featured section */
 .featured-picture-gallery {
-  @apply pl-16 pr-16 grid grid-cols-6 gap-4;
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 .browse-wrapper {
   @apply flex items-center flex-row hover:underline;
 }
 
+.featured-container {
+  @apply w-[12%] aspect-square rounded-full shadow-md bg-white hover:shadow-xl hover:bg-secondary border-4 border-secondary z-0 flex items-center justify-center;
+}
+
 .featured-image {
-  @apply w-[140px] h-[170px] rounded-[100px] shadow-md bg-white hover:shadow-xl hover:bg-secondary border-4 border-secondary z-0 flex items-center justify-center;
+  @apply w-[50%];
 }
 
 /* Recent orders section */

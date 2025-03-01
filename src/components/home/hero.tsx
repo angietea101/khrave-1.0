@@ -8,9 +8,7 @@ export const Hero = () => {
     return (
         <section className="hero-container">
             <div className="htext-button-wrapper">
-                <div className="hero-text">
-                    <h1>LET'S START SHARING!</h1>
-                </div>
+                <h1>LET'S START SHARING!</h1>
 
                 <div className="create-post-button">
                     <Link href='/vendors'>
@@ -21,7 +19,7 @@ export const Hero = () => {
                 </div>
             </div>
 
-            <div className="">
+            <div className="hero-icon-wrapper">
                 <Image src='/girl-icon.png' alt='girl-icon' width={350} height={600}></Image>    
             </div>
         </section> 

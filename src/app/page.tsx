@@ -18,7 +18,7 @@ export default async function Home() {
       <User />
 
       <h2>Server Session</h2>
-      {JSON.stringify(session)}
+      <pre className="whitespace-pre-wrap break-words">{JSON.stringify(session, null, 2)}</pre>
     </div>
   )
 }
