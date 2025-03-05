@@ -102,6 +102,7 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
                                     author={post.author}
                                     vendor={post.vendor}
                                     isUserPost={true}
+                                    createdAt={post.createdAt}
                                 />
                                 <div className="absolute top-6 right-8 flex items-center space-x-2">
                                     <button 
