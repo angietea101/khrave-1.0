@@ -8,6 +8,7 @@ export interface Post {
     author: {
         username: string;
     };
+    createdAt: string;
     vendor: {
         vendorName: string;
     };

@@ -81,6 +81,7 @@ export default async function VendorPage({
                                 image={post.image}
                                 author={post.author}
                                 vendor={post.vendor}
+                                createdAt={post.createdAt}
                                 isUserPost={false}
                             />
                         ))

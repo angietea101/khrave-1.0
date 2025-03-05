@@ -7,10 +7,11 @@ type PostProps = {
     image?: string;
     author: { username: string };
     vendor: { vendorName: string };
+    createdAt: string;
     isUserPost?: boolean;
 };
 
-export default function Post({ title, content, image, author, isUserPost }: PostProps) {
+export default function Post({ title, content, image, author, isUserPost, createdAt }: PostProps) {
     const formattedContent = content?.trim().split('\n').map((line, index) => (
         <span key={index}>
             {line}
@@ -27,6 +28,8 @@ export default function Post({ title, content, image, author, isUserPost }: Post
                     <h3>{title}</h3>
                     <h3>|</h3>
                     <h3>@{author.username}</h3>
+                    <h3>|</h3>
+                    <h3>Posted: {createdAt.slice(0, 10)}</h3>
                 </div>
                 <div className={`content-wrapper ${isUserPost ? "post-margin" : ""}`}>
                     <p>{formattedContent}</p> 
@@ -39,6 +42,7 @@ export default function Post({ title, content, image, author, isUserPost }: Post
                     )}
                 </div>
             </div>
+            
         </div>
     );
 }
