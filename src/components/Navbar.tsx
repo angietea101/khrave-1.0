@@ -8,24 +8,29 @@ const Navbar = async () => {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="navbar-wrapper">
-      <div className="navbar-container flex items-center px-10">
-        <Link href="/" className="flex items-center">
-          {/* Put image here */}
-          <span className="navbar-khrave">Khrave</span>
-        </Link>
-
-        <div>
-          {session?.user ? (
-            <UserAccountNav />
-          ) : (
-            <Link href="/login" className="navbar-login-button">
-              Log in
-            </Link>
-          )}
-        </div>
-      </div>
-    </div>
+    <>
+      <nav>
+          <Link href={'/'}>
+            <h1>khrave</h1>
+          </Link>
+          <div className="nav-icons">
+              <div>
+                {session?.user ? (
+                  <UserAccountNav />
+                ) : (
+                  <Link href="/login" className="navbar-login-button">
+                    Log in
+                  </Link>
+                )}
+              </div>
+              <div>
+                <span className="hamburger"></span>
+                <span className="hamburger"></span>
+                <span className="hamburger"></span>
+              </div>
+          </div>
+      </nav>
+    </>
   );
 };
 

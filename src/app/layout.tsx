@@ -4,6 +4,24 @@ import { Nunito_Sans } from 'next/font/google';
 import Navbar from "../components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import Provider from "@/components/Provider";
+import localFont from 'next/font/local'
+
+
+const madeTommy = localFont({
+  src: [
+    {
+      path: '../../public/fonts/made-tommy-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/made-tommy-bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-made-tommy',
+})
 
 const nunitoSans = Nunito_Sans({
   subsets: ['latin'],
@@ -23,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={nunitoSans.className}>
+      <body className={madeTommy.className}>
         <Provider>
           <main className=''>
             <Navbar />

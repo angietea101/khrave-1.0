@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8f5ed;
+  --background: #ffffff;
+  --font-made-tommy: var(--font-made-tommy)
 
   /* Shadcn Variables */
   --sc-background: 0 0% 100%;
@@ -72,7 +73,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-nunito-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-made-tommy), sans-serif;
   min-height: 100vh;
 }
 
@@ -151,16 +152,52 @@ body {
 }
 
 /* Navbar */
-.navbar-wrapper {
-  @apply bg-primary pt-6 pb-6 border-s-zinc-200 fixed w-full z-50 top-0 pl-0 pr-0;
+nav {
+  display: flex;
+  background-color: #517b53;
+  height: 5rem;
+  align-items: center;
+  padding: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-.navbar-container {
-  @apply flex items-center justify-between;
+nav h1 {
+  color: #f8eeb9;
+  margin: 0;
+  font-size: 2.3rem;
+  font-family: var(--font-made-tommy), sans-serif;
+  font-weight: 700;
 }
 
-.button-wrapper {
-  @apply p-1;
+.nav-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hamburger {
+  display: block;
+  width: 33px;
+  height: 3px;
+  margin-bottom: 8px;
+  position: relative;
+
+  background: #f8eeb9;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
 .navbar-login-button {
