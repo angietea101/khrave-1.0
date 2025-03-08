@@ -635,6 +635,8 @@ nav h1 {
 
   .i-vendor-post-section {
     width: 100%;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   .i-vendor-post {
@@ -652,6 +654,7 @@ nav h1 {
 
   .i-vendor-logo-wrapper {
     top: 10;
+    margin-bottom: 2rem;
   }
   
 
