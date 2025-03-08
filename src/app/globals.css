@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #FFFDEA;
   --font-made-tommy: var(--font-made-tommy)
   --font-made-tommy-soft: var(--font-made-tommy-soft)
 
@@ -627,7 +627,7 @@ nav h1 {
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 600px) {
   .i-vendor-main {
     flex-direction: column;
     align-items: center;
@@ -751,12 +751,13 @@ nav h1 {
 
 /* Individual Posts */
 .post-container {
-  @apply bg-[#F5EBE2] rounded-[2rem] p-8 my-8 w-full shadow-lg;
+  @apply bg-[#D7E2B8] rounded-[2rem] p-8 my-8 w-full shadow-lg;
 }
 
 .post-title {
   font-size: 2rem;
   font-weight: 700;
+  color: #08310A;
 }
 
 .post-date {

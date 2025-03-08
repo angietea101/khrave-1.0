@@ -44,12 +44,6 @@ const madeTommySoft = localFont({
   variable: '--font-made-tommy-soft',
 })
 
-const nunitoSans = Nunito_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700', '800'],
-  variable: '--font-nunito-sans',
-});
-
 export const metadata: Metadata = {
   title: "Khrave",
   description: "Share your unique custom orders!",

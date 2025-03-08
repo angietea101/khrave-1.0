@@ -1,5 +1,3 @@
-import { authOptions } from '../lib/auth';
-import { getServerSession } from 'next-auth';
 import React from 'react';
 import Image from 'next/image';
 import dogImage from "../../../public/dog.png";
