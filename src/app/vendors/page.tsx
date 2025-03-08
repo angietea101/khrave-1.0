@@ -1,7 +1,7 @@
 import { authOptions } from '../lib/auth';
 import { getServerSession } from 'next-auth';
 import React from 'react';
-import Image from 'next/image'; // Import Image from Next.js
+import Image from 'next/image';
 import dogImage from "../../../public/dog.png";
 import Link from 'next/link';
 import subwayImage from '../../../public/subway-background2.png';

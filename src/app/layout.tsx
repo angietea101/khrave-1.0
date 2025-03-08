@@ -10,6 +10,16 @@ import localFont from 'next/font/local'
 const madeTommy = localFont({
   src: [
     {
+      path: '../../public/fonts/made-tommy-thin.otf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/made-tommy-light.otf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
       path: '../../public/fonts/made-tommy-regular.otf',
       weight: '400',
       style: 'normal',
@@ -21,6 +31,17 @@ const madeTommy = localFont({
     },
   ],
   variable: '--font-made-tommy',
+})
+
+const madeTommySoft = localFont({
+  src: [
+    {
+      path: '../../public/fonts/made-tommy-soft-regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-made-tommy-soft',
 })
 
 const nunitoSans = Nunito_Sans({
@@ -41,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={madeTommy.className}>
+      <body className={`${madeTommy.className}`}>
         <Provider>
           <main className=''>
             <Navbar />

@@ -7,12 +7,12 @@ import { authOptions } from "@/app/lib/auth";
 
 const imageMap = {
     subway: {
-        background: '/subway-background.png',
-        logo: '/subway-circle-logo.png',
+        background: '/banners/subway.jpeg',
+        logo: '/logos/subway.png',
     },
     chipotle: {
-        background: '/chipotle-background.jpg',
-        logo: '/chipotle-circle-logo.png',
+        background: '/banners/chipotle.jpg',
+        logo: '/logos/chipotle-circle-logo.png',
     },
     dominos: {
         background: '/dominos-background.jpg',
@@ -46,49 +46,85 @@ export default async function VendorPage({
 
     const session = await getServerSession(authOptions);
 
-    return (
-        <div className={'i-vendor-container'}>
-            <Link className={'i-back-button'} href="/vendors">
-                <div className={'back-button-circle'}>
-                    <div className={`${'arrow'} ${'left'}`}></div>
-                </div>
-            </Link>
-            <div className={'i-vendor-wrapper'}>
-                <div className={'i-circle'}>
-                    <Image className={'i-vendor-image'} src={vendorImages.logo} width={200} height={200} alt="Circle Image" />
-                </div>
-                <Image className={'i-vendor-image'} src={vendorImages.background} width={2500} height={2000} alt={`${vendorName} background`} />
-                <h1 className={'i-vendor-title'}>{vendorName}</h1>
-            </div>
-            
-            {session ? (
-                <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
-                    <h1 className={'plus-sign'}></h1>
-                </Link>
-            ) : (
-                <p className="i-not-auth">Log in to create a post.</p>
-            )}
+    console.log("Raw vendorName:", vendorName);
+    console.log("Processed vendorName:", vendor);
 
-            <div className="post-wall-wrapper">
-                <div className="post-wall">
-                    {posts.length > 0 ? (
-                        posts.map((post: PostType) => (
-                            <Post 
-                                key={post.id}
-                                id={post.id}
-                                title={post.title}
-                                content={post.content}
-                                image={post.image}
-                                author={post.author}
-                                vendor={post.vendor}
-                                createdAt={post.createdAt}
-                                isUserPost={false}
-                            />
-                        ))
-                    ) : (
-                        <p className="no-posts center-vertically">There are zero posts :(</p>
-                    )}
+    return (
+        <div className="i-vendor-main">
+            {/* Left Section */}
+            <div className="i-vendor-left-section">
+                <Link className="i-vendor-back" href={"../"}>
+                    <Image
+                        src="/icons/double-chevron-left.svg"
+                        alt="Chevron Left Icon"
+                        width={24}
+                        height={24} 
+                    />
+                    back
+                </Link>
+
+                {/* Banner */}
+                <div 
+                    className="i-vendor-banner"
+                    style={{
+                        backgroundImage: vendorImages ? `url(${vendorImages.background})` : 'none',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                    }}
+                />
+
+                {/* Logo + Name */}
+                <div className='i-vendor-logo-wrapper'>
+                    <div 
+                        className='i-circle'
+                        style={{
+                            backgroundImage: vendorImages ? `url(${vendorImages.logo})` : 'none',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    />
+                    <h2>{vendor}</h2>
                 </div>
+
+                <div className='i-vendor-ad-wrapper'>
+                    <p>#ad</p>
+                </div>
+
+            </div>
+
+            {/* Right Section */}
+            <div className="i-vendor-post-section">
+                {session ? (
+                    <Link className={'i-create-post-button'} href={`/vendors/${vendorName}/create-post?vendorName=${vendorName}`}>
+                        <h1 className={'plus-sign'}></h1>
+                    </Link>
+                ) : (
+                    <p className="i-not-auth">Log in to create a post.</p>
+                )}
+                
+                <div className='i-vendor-filter-wrapper'>
+                    <h1>Sort by: <u>Newest</u></h1>
+                    <h1>Filter by: <u>All</u></h1>
+                </div>
+                {posts.length > 0 ? (
+                    posts.map((post: PostType) => (
+                        <Post 
+                            key={post.id}
+                            id={post.id}
+                            title={post.title}
+                            content={post.content}
+                            image={post.image}
+                            author={post.author}
+                            vendor={post.vendor}
+                            createdAt={post.createdAt}
+                            isUserPost={false}
+                        />
+                    ))
+                ) : (
+                    <p className="no-posts center-vertically">There are zero posts :(</p>
+                )}
             </div>
         </div>
     );
