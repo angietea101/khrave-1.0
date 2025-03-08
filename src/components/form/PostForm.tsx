@@ -4,7 +4,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 import { PostFormProps } from '@/types/post';
 import { useSession } from "next-auth/react";
 

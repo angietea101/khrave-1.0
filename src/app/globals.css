@@ -78,6 +78,27 @@ body {
   min-height: 100vh;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFFDEA;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #517B53;
+  border-radius: 2rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #73AC76;
+}
+
 .nunito_sans {
   font-family: var(--font-nunito-sans);
 }
@@ -528,7 +549,7 @@ nav h1 {
 .i-vendor-ad-wrapper {
   height: 400px;
   width: 80%;
-  background-color: #D9D9D9;
+  background-color: #F1F1F1;
   justify-self: center;
   border-radius: 2rem;
   padding: 1.5rem;
