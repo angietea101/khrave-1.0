@@ -15,6 +15,7 @@
   --medium-green: #517B53;
   --medium-hover: #6A9C6D;
   --light-green: #D7E2B8;
+  --light-hover: #C1D19E;
   --beige: #F8EEB9;
 
   /* Shadcn Variables */
@@ -276,15 +277,19 @@ nav h1 {
 }
 
 .section-title-wrapper {
-  @apply flex justify-between items-center m-10;
+  @apply flex justify-between items-center my-10;
 }
 
 .section-title-wrapper p {
-  @apply text-4xl font-bold text-black;
+  font-size: min(4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--dark-green);
 }
 
 .section-title-wrapper span {
-  @apply text-2xl font-normal text-black;
+  font-size: min(3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--dark-green);
 }
 
 @media (max-width: 740px) {
