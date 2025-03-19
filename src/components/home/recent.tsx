@@ -1,16 +1,17 @@
-'use client'
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ArrowRight from "../ui/ArrowRight";
+import styles from "@/app/styles/Recent.module.css";
 
 type Post = {
-    id: number;
-    title: string;
-    image: string | null;
-    vendor: { vendorName: string };
-}
+  id: number;
+  title: string;
+  image: string | null;
+  vendor: { vendorName: string };
+};
 
 const Recent = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -31,14 +32,14 @@ const Recent = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
     const getRecentPosts = async () => {
-        try {
-            const res = await fetch("/api/recent-posts");
-            const data = await res.json();
-            setPosts(data);
-        } catch (error) {
-            console.error("Error fetching recent posts:", error);
-        }
-    }
+      try {
+        const res = await fetch("/api/recent-posts");
+        const data = await res.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching recent posts:", error);
+      }
+    };
 
     getRecentPosts();
   }, []);
@@ -55,12 +56,12 @@ const Recent = () => {
         </Link>
       </div>
 
-      <div className="recent-picture-gallery">
+      <div className={styles.recentPictureGallery}>
         {displayedPosts.map((post) => (
-          <div key={post.id} className="food-rectangle">
-            <Link href={`/post/${post.id}`} className="image-shape">
+          <div key={post.id} className={styles.foodRectangle}>
+            <Link href={`/post/${post.id}`} className={styles.imageShape}>
               <Image
-                className="food-rectangle-image object-cover"
+                className={styles.foodRectangleImage}
                 src={post.image || "/placeholder.jpg"}
                 alt={post.title}
                 height={200}
