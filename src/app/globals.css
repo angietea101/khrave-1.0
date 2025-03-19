@@ -9,6 +9,14 @@
   --font-made-tommy: var(--font-made-tommy)
   --font-made-tommy-soft: var(--font-made-tommy-soft)
 
+  /* Theme Colors */
+  --background: #FFFDEA;
+  --dark-green: #2A4213;
+  --medium-green: #517B53;
+  --medium-hover: #6A9C6D;
+  --light-green: #D7E2B8;
+  --beige: #F8EEB9;
+
   /* Shadcn Variables */
   --sc-background: 0 0% 100%;
   --sc-foreground: 222.2 84% 4.9%;

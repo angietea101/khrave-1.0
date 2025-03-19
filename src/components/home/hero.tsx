@@ -2,28 +2,42 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react"; 
+import React from "react";
+import styles from "@/app/styles/Home.module.css";
 
 export const Hero = () => {
-    return (
-        <section className="hero-container">
-            <div className="htext-button-wrapper">
-                <h1>LET'S START SHARING!</h1>
+  return (
+    <section className={styles.heroContainer}>
+      <div className={styles.hTextButtonWrapper}>
+        <h1>Let&apos;s start sharing!</h1>
 
-                <div className="create-post-button">
-                    <Link href='/vendors'>
-                        <button className="">
-                            create post
-                        </button>
-                    </Link>
-                </div>
-            </div>
+        <div className={styles.browseButton}>
+          <Link href="/vendors">
+            <button>
+              browse all vendors
+              <Image
+                src="/icons/arrow-right-thin.svg"
+                alt="Arrow Right Icon"
+                width={24}
+                height={24}
+                draggable="false"
+              />
+            </button>
+          </Link>
+        </div>
+      </div>
 
-            <div className="hero-icon-wrapper">
-                <Image src='/girl-icon.png' alt='girl-icon' width={350} height={600}></Image>    
-            </div>
-        </section> 
-    );
-}
+      <div className={styles.heroIconWrapper}>
+        <Image
+          src="/girl-icon.png"
+          alt="girl-icon"
+          width={350}
+          height={600}
+          draggable="false"
+        ></Image>
+      </div>
+    </section>
+  );
+};
 
 export default Hero;

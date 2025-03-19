@@ -6,19 +6,21 @@ import Features from "@/components/home/featured";
 import Recent from "@/components/home/recent";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
   return (
     <div className="home-container center-vertically">
-      <Hero/>
+      <Hero />
       <Features />
       <Recent />
-      <h1 className='text-4xl'>Home</h1>
+      <h1 className="text-4xl">Home</h1>
 
       <h2>Client Session</h2>
       <User />
 
       <h2>Server Session</h2>
-      <pre className="whitespace-pre-wrap break-words">{JSON.stringify(session, null, 2)}</pre>
+      <pre className="whitespace-pre-wrap break-words">
+        {JSON.stringify(session, null, 2)}
+      </pre>
     </div>
-  )
+  );
 }
