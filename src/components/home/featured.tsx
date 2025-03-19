@@ -73,7 +73,7 @@ const Features = () => {
         </Link>
       </div>
 
-      <div className="featured-picture-gallery">
+      <div className={styles.featuredPictureGallery}>
         {featuredFoodSpots
           .slice(
             0,
