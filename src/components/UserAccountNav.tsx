@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { signOut } from "next-auth/react"
+import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -8,16 +8,16 @@ const UserAccountNav = () => {
   const router = useRouter();
 
   const handleRedirect = () => {
-      router.push('/admin'); 
+    router.push("/admin");
   };
   return (
-    <main className="button-wrapper">
+    <main>
       <button onClick={handleRedirect}>
-        <Image 
+        <Image
           src="/icons/user.svg"
           alt="User Profile Icon"
-          width={45}
-          height={45}
+          width={40}
+          height={40}
         />
       </button>
       {/* 
@@ -30,7 +30,7 @@ const UserAccountNav = () => {
       
       */}
     </main>
-  )
-}
+  );
+};
 
-export default UserAccountNav
+export default UserAccountNav;

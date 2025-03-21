@@ -4,7 +4,10 @@ import Navbar from "../components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import Provider from "@/components/Provider";
 import localFont from "next/font/local";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
 
+// Define the MADE Tommy font
 const madeTommy = localFont({
   src: [
     {
@@ -31,6 +34,7 @@ const madeTommy = localFont({
   variable: "--font-made-tommy",
 });
 
+// Define the MADE Tommy Soft font
 const madeTommySoft = localFont({
   src: [
     {
@@ -47,17 +51,19 @@ export const metadata: Metadata = {
   description: "Share your unique custom orders!",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession(authOptions);
+
   return (
     <html lang="en">
       <body className={`${madeTommy.className}`}>
         <Provider>
           <main className="">
-            <Navbar />
+            <Navbar session={session} />
             {children}
           </main>
           <Toaster />

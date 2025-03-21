@@ -1,0 +1,209 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  background-color: #517b53;
+  height: 5rem;
+  width: auto;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbarTitle {
+  color: #f8eeb9;
+  margin: 0;
+  font-size: 2.3rem;
+  font-family: var(--font-made-tommy), sans-serif;
+  font-weight: 700;
+}
+
+.navIcons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Hamburger Button */
+.hamb {
+  position: relative;
+  margin-right: -0.625rem;
+  border-width: 0;
+  background-color: transparent;
+  padding: 0;
+  color: black;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.ham {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.lineTop {
+  stroke-dasharray: 40 160;
+}
+
+.lineMiddle {
+  transform-origin: 50%;
+  stroke-dasharray: 40 142;
+}
+
+.lineBottom {
+  transform-origin: 50%;
+  stroke-dasharray: 40 85;
+}
+
+.hamb .lineTop,
+.hamb .lineMiddle,
+.hamb .lineBottom {
+  fill: none;
+  stroke: #f8eeb9;
+  stroke-width: 5;
+  transition: all 0.3s;
+  stroke-linecap: round;
+}
+
+/* Active (Open) State */
+.hamb.active .ham {
+  transform: rotate(45deg);
+}
+
+.hamb.active .lineTop {
+  stroke-dashoffset: -64px;
+}
+
+.hamb.active .lineMiddle {
+  transform: rotate(90deg);
+}
+
+.hamb.active .lineBottom {
+  stroke-dashoffset: -64px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  top: 4.9rem;
+  right: 0;
+  position: fixed;
+  background: var(--medium-green);
+  height: 470px;
+  width: 70vw;
+  max-width: 350px;
+  min-width: 250px;
+  border-bottom-left-radius: 50px 50px;
+  z-index: 998;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 2rem;
+  justify-content: "space-between";
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.topWrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.bottomWrapper {
+  width: 100%;
+}
+
+.menu button {
+  color: var(--beige);
+  font-family: var(--font-made-tommy);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  text-align: left;
+}
+
+.contactButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.contactButtonWrapper button {
+  display: flex;
+  flex: 1;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background: var(--beige);
+  border-radius: 0.7rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.navbarLoginButton {
+  background-color: var(--beige);
+  color: var(--medium-green);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+}
+
+.navbarLoginButton:hover {
+  background-color: var(--light-hover);
+}
+
+.navbarLogoutButton {
+  @apply bg-red-500 text-white py-2 px-4 rounded-full;
+}
+
+.navbarLogoutButton:hover {
+  @apply bg-red-600;
+}
+
+.navbarProfileButton {
+  @apply mx-2 bg-green-500 text-white py-2 px-4 rounded-full;
+}
+
+.navbarProfileButton:hover {
+  @apply bg-green-600;
+}
+
+.navbarKhrave {
+  @apply ml-2 text-2xl font-bold text-gray-800;
+}
