@@ -19,6 +19,9 @@
   --light-hover: #C1D19E;
   --beige: #F8EEB9;
 
+  --transition-3s: 0.3s;
+
+
   /* Shadcn Variables */
   --sc-background: 0 0% 100%;
   --sc-foreground: 222.2 84% 4.9%;

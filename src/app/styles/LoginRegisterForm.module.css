@@ -1,48 +1,58 @@
-.wrapper {
-  max-width: 960px;
-  margin: 0 auto;
+.mainWrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 85vh;
+  justify-content: center;
+  min-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
 }
 
-.wrapper .registerLink {
+.wrapper {
+  position: relative;
+  width: 430px;
+  max-width: 90vw;
+  background-color: var(--medium-green);
+  border-radius: 15px;
+  padding: 3rem;
+  transition: var(--transition-3s);
+  overflow-y: auto;
+}
+
+.wrapper .linkWrapper {
   color: var(--beige);
   font-size: 1.125rem;
   text-align: center;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 200;
   cursor: default;
 }
 
-.formWrapper {
-  background-color: var(--medium-green);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  padding-right: 3rem;
-  padding-left: 3rem;
+.form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 100%;
+  transition: var(--transition-3s);
+  gap: 1rem;
 }
 
-.formWrapper h1 {
+.wrapper h1 {
   cursor: default;
-  font-size: 4.5rem;
+  font-size: clamp(1px, 15vw, 4.5rem);
   font-weight: 700;
   text-align: center;
   margin: 0.75rem;
   color: var(--beige);
 }
 
-.formWrapper .inputBox {
-  font-size: 1.5rem;
-  margin: 0.5rem;
+.inputBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 3rem;
 }
 
 .inputBox input {
@@ -52,35 +62,37 @@
   outline: none;
   background-color: var(--beige);
   width: 100%;
-  height: 100%;
+  height: 55px;
   border-radius: 0.75rem;
   color: var(--dark-green);
-  padding: 0.5rem;
+  padding: 0 20px;
   font-size: 1.125rem;
+  transition: var(--transition-3s);
 }
 
 .inputBox input::placeholder {
   color: var(--medium-green);
 }
 
-.form {
-  @apply flex flex-col items-center w-[50vw] max-w-72;
-}
-
-.loginButton {
-  font-size: 1.25rem;
-  margin: 0.25rem;
-  width: 33.3333%;
-  height: 2.75rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+.buttonSubmit {
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  min-width: 75px;
+  height: 40px;
   background-color: var(--beige);
-  border-radius: 1rem;
   color: var(--medium-green);
+  font-size: 1rem;
   font-weight: 400;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: var(--transition-3s);
 }
 
-.loginButton:hover {
+.buttonSubmit:hover {
   background-color: var(--light-hover);
 }
 
@@ -88,6 +100,7 @@
   text-decoration: none;
   color: var(--beige);
   font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .linkDecoration:hover {
@@ -95,7 +108,15 @@
 }
 
 .errorText {
-  color: #ef4444;
+  color: #fff;
   font-size: 0.75rem;
-  font-style: italic;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+}
+
+@media only screen and (max-width: 564px) {
+  .wrapper {
+    margin: 20px;
+  }
 }

@@ -72,8 +72,8 @@ const RegisterForm: React.FC = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.formWrapper}>
+    <div className={styles.mainWrapper}>
+      <div className={styles.wrapper}>
         <h1 className="">register</h1>
         <form className={styles.form} onSubmit={form.handleSubmit(onSubmit)}>
           <div className={styles.inputBox}>
@@ -107,7 +107,7 @@ const RegisterForm: React.FC = () => {
               type="password"
               placeholder="password"
             ></input>
-            <p className="error-text">
+            <p className={styles.errorText}>
               {form.formState.errors.password?.message}
             </p>
           </div>
@@ -124,11 +124,11 @@ const RegisterForm: React.FC = () => {
             </p>
           </div>
 
-          <button className={styles.loginButton} type="submit">
+          <button className={styles.buttonSubmit} type="submit">
             register
           </button>
 
-          <div className={styles.registerLink}>
+          <div className={styles.linkWrapper}>
             <p>Already have an account?</p>
             <Link className={styles.linkDecoration} href="/login">
               Log in

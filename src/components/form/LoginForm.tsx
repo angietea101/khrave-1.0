@@ -50,8 +50,8 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className={styles.wrapper}>
-        <div className={styles.formWrapper}>
+      <div className={styles.mainWrapper}>
+        <div className={styles.wrapper}>
           <h1 className="">log in</h1>
           <form
             className={styles.form}
@@ -82,11 +82,11 @@ const LoginForm = () => {
               </p>
             </div>
 
-            <button className={styles.loginButton} type="submit" value="login">
+            <button className={styles.buttonSubmit} type="submit" value="login">
               log in
             </button>
 
-            <div className={styles.registerLink}>
+            <div className={styles.linkWrapper}>
               <p>Don&apos;t have an account?</p>
               <Link className={styles.linkDecoration} href="/register">
                 Register
