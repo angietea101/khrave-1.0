@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
-import styles from "@/app/styles/LoginForm.module.css";
+import styles from "@/app/styles/LoginRegisterForm.module.css";
 
 const FormSchema = z.object({
   username: z
@@ -51,40 +51,44 @@ const LoginForm = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <div className="wrapper">
-          <h1 className="">login</h1>
-          <form className="form" onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="input-box">
+        <div className={styles.formWrapper}>
+          <h1 className="">log in</h1>
+          <form
+            className={styles.form}
+            onSubmit={form.handleSubmit(onSubmit)}
+            autoComplete="off"
+          >
+            <div className={styles.inputBox}>
               <input
                 {...form.register("username")}
                 type="text"
                 placeholder="username"
                 required
               ></input>
-              <p className="error-text">
+              <p className={styles.errorText}>
                 {form.formState.errors.username?.message}
               </p>
             </div>
 
-            <div className="input-box">
+            <div className={styles.inputBox}>
               <input
                 {...form.register("password")}
                 type="password"
                 placeholder="password"
                 required
               ></input>
-              <p className="error-text">
+              <p className={styles.errorText}>
                 {form.formState.errors.password?.message}
               </p>
             </div>
 
-            <button className="login-button" type="submit" value="login">
-              login
+            <button className={styles.loginButton} type="submit" value="login">
+              log in
             </button>
 
-            <div className="register-link">
-              <p>Don't have an account?</p>
-              <Link className="link-decoration" href="/register">
+            <div className={styles.registerLink}>
+              <p>Don&apos;t have an account?</p>
+              <Link className={styles.linkDecoration} href="/register">
                 Register
               </Link>
             </div>
