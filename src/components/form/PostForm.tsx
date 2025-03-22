@@ -13,6 +13,7 @@ const MAX_CONTENT_LENGTH = 500;
 export default function PostForm({
     initialTitle = '',
     initialContent = '',
+    initialImage = '',
     vendorName= '',
     postId,
     isEditing = false,
@@ -32,7 +33,7 @@ export default function PostForm({
             setTitle(initialTitle);
             setContent(initialContent);
         }
-    }, [initialTitle, initialContent, isEditing]);
+    }, [initialTitle, initialContent, initialImage, isEditing]);
 
     function capitalizeWords(name: string | null): string {
         if (!name) return '';
