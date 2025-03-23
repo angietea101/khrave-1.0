@@ -22,6 +22,7 @@ export interface UserPostsProps {
 export interface PostFormProps {
     initialTitle?: string;
     initialContent?: string;
+    initialImage?: string;
     vendorName?: string | null;
     postId?: number;
     isEditing?: boolean;

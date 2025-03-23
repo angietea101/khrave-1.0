@@ -32,6 +32,7 @@ export default function PostForm({
         if (isEditing) {
             setTitle(initialTitle);
             setContent(initialContent);
+            setPreview(initialImage);
         }
     }, [initialTitle, initialContent, initialImage, isEditing]);
 
