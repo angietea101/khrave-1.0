@@ -1,6 +1,6 @@
 # Khrave
 
-Welcome to **Khrave**! 🎉 A social web application for foodies where users can post unique custom orders from food chains and share their homemade recipes.
+Welcome to **Khrave**! A social web application for foodies where users can post unique custom orders from food chains and share their homemade recipes.
 
 ## Table of Contents
 
