@@ -56,7 +56,7 @@ To get started with **Khrave**, follow these steps:
 
 3. Set up your environment variables:
 
-   Create a `.env` file in the root directory and add the required environment variables. Required environment variables indclude: `DATABASE_URL`, `NEXT_PUBLIC_BASE_URL` and `NEXTAUTH_SECRET`.
+   Create a `.env` file in the root directory and add the required environment variables. Required environment variables include: `DATABASE_URL`, `NEXT_PUBLIC_BASE_URL` and `NEXTAUTH_SECRET`.
 
    `DATABASE_URL` is obtained by setting up your own postgres database, `NEXT_PUBLIC_BASE_URL` is localhost:3000, and `NEXTAUTH_SECRET` is
    a random string.
