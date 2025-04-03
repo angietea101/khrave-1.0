@@ -21,7 +21,7 @@ model User {
 
   writtenPosts  Post[] @relation("WrittenPosts")
   favoritePosts Post[] @relation("FavoritePosts")
-
+  likes Like[]
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
 
@@ -47,6 +47,7 @@ model Post {
   vendorId Int
 
   tags Tag[] @relation("PostTags") // Many-to-many relation with Tag
+  likes Like[] 
 }
 
 model Vendor {
@@ -69,4 +70,15 @@ enum TagType {
   BITTER
   BLAND
   SAVORY
+}
+
+model Like {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  post Post @relation(fields: [postId], references: [id])
+  postId Int
+
+  createdAt DateTime @default(now())
+  @@unique([userId, postId])
 }
