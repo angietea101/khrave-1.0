@@ -27,6 +27,7 @@ export default function Post({
 }: PostProps) {
   const { data: session } = useSession();
   const [likes, setLikes] = useState<number>(0);
+  const [hasLiked, setHasLiked] = useState<boolean>(false);   
 
   // Fetch the number of likes
   useEffect(() => {
@@ -36,6 +37,8 @@ export default function Post({
         const data = await response.json();
         if (data.success) {
           setLikes(data.likes);
+          // Checking if current user has liked post previously
+          setHasLiked(data.likes > 0);
         }
       } catch (error) {
         console.error("Error fetching likes:", error);
@@ -62,6 +65,7 @@ export default function Post({
           setLikes((prevLikes) =>
             data.message === "Post liked" ? prevLikes + 1 : prevLikes - 1
           );
+          setHasLiked((() => data.message === "Post liked" ? true : false));
         }
       } else {
         console.error("Failed to like post");
@@ -70,6 +74,7 @@ export default function Post({
       console.error("Error liking post:", error);
     }
   };
+
   const formattedContent = content
     ?.trim()
     .split("\n")
@@ -106,7 +111,7 @@ export default function Post({
         <div className={styles.likeAndTagWrapper}>
           <button onClick={handleLike} className={styles.likeButton}>
             <Image
-              src="/icons/like-button.svg"
+              src={hasLiked ? "/icons/like-button-active.svg":"/icons/like-button.svg"}
               alt="Like Button"
               width={24}
               height={24}
