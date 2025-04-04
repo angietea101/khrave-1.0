@@ -1,28 +1,25 @@
 import { authOptions } from "@/app/lib/auth";
 import { getServerSession } from "next-auth";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Page: React.FC = async () => {
-    const session = await getServerSession(authOptions);
-    console.log("Session:", session);
+  const session = await getServerSession(authOptions);
+  console.log("Session:", session);
 
-    if (session?.user) {
-        return (
-            <section className="center admin-container">
-                <h1>Admin page - welcome back, {session.user.username}!</h1>
-                <button className="default-button">
-                    <Link href={`/user/${session.user.username}`}>
-                        View Your Posts
-                    </Link>
-                </button>
-            </section>
-        );
-    }
-
+  if (session?.user) {
     return (
-        <h1 className="center not-auth">Please login to see this admin page.</h1>
+      <section className="center admin-container">
+        <h1>Admin page - welcome back, {session.user.username}!</h1>
+        <button className="default-button">
+          <Link href={`/user/${session.user.username}`}>View Your Posts</Link>
+        </button>
+      </section>
     );
+  }
+
+  return (
+    <h1 className="center not-auth">Please login to see this admin page.</h1>
+  );
 };
 
 export default Page;

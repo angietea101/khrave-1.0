@@ -1,0 +1,106 @@
+/* Post component */
+
+.postContainer {
+  @apply bg-[#D7E2B8] rounded-[2rem] p-8 my-8 w-full shadow-lg;
+}
+
+.postTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.postDate {
+  font-size: 0.7rem;
+  color: #36454f;
+  font-family: var(--font-made-tommy);
+  font-weight: 100;
+}
+
+.postContainerDescription {
+  color: black;
+  font-family: var(--font-made-tommy-soft), sans-serif;
+  font-weight: 400;
+  word-break: break-word;
+}
+
+.postImage {
+}
+
+.postUsername {
+  @apply text-[#517B53];
+}
+
+.postDisplayWrapper {
+  @apply w-4/5 min-w-96;
+}
+
+.subjectWrapper {
+  @apply flex mr-8 w-[90%] flex-wrap flex-col;
+}
+
+.subjectWrapper h3 {
+  @apply leading-tight break-all;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.postMargin {
+  margin-top: 2rem;
+}
+
+@media (max-width: 740px) {
+  .postMargin {
+    margin-top: 1rem;
+  }
+}
+
+.contentWrapper:has(img) {
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contentWrapper:has(img) p {
+  flex: 1;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  min-width: 0;
+}
+
+.contentWrapper img {
+  max-width: 50%;
+  object-fit: contain;
+  max-height: 20rem;
+  border-radius: 0.75rem;
+}
+
+.likeAndTagWrapper {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  gap: 0.3rem;
+}
+
+@media (max-width: 740px) {
+  .contentWrapper:has(img) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contentWrapper:has(img) p {
+    width: 100%;
+  }
+
+  .contentWrapper img {
+    max-width: 100%;
+    max-height: 12rem;
+    align-self: center;
+  }
+}
