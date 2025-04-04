@@ -16,37 +16,27 @@ type PostProps = {
   isUserPost?: boolean;
 };
 
-export default function Post({
-  id,
-  title,
-  content,
-  image,
-  author,
-  isUserPost,
-  createdAt,
-}: PostProps) {
-  const { data: session } = useSession();
-  const [likes, setLikes] = useState<number>(0);
-  const [hasLiked, setHasLiked] = useState<boolean>(false);   
+export default function Post({ id, title, content, image, author, isUserPost, createdAt}: PostProps) {
+    const {data: session} = useSession();
+    const [likes, setLikes] = useState<number>(0);
+    const [hasLiked, setHasLiked] = useState<boolean>(false);
+    // Fetch the number of likes 
+    useEffect(() => {
+        const fetchLikes = async () => {
+            try {
+                const response = await fetch(`/api/post/${id}/like`);
+                const data = await response.json();
+                if (data.success) {
+                    setLikes(data.likes);
+                    setHasLiked(data.hasLiked)
+                }
+            } catch (error) {
+                console.error("Error fetching likes:", error);
+            }
+        };
 
-  // Fetch the number of likes
-  useEffect(() => {
-    const fetchLikes = async () => {
-      try {
-        const response = await fetch(`/api/post/${id}/like`);
-        const data = await response.json();
-        if (data.success) {
-          setLikes(data.likes);
-          // Checking if current user has liked post previously
-          setHasLiked(data.likes > 0);
-        }
-      } catch (error) {
-        console.error("Error fetching likes:", error);
-      }
-    };
-
-    fetchLikes();
-  }, [id]);
+        fetchLikes();
+    }, [id]);
 
   const handleLike = async () => {
     if (!session) {

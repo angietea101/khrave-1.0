@@ -53,22 +53,37 @@ export async function POST(req: NextRequest, context: { params: { id: string } }
         return NextResponse.json({ success: 0, message: "Internal server error" }, { status: 500 });
     }
 }
-export async function GET(req: NextRequest, context: { params : { id: string } }) {
-    const { id } = await context.params;
+export async function GET(req: NextRequest, context: { params: { id: string } }) {
+    const session = await getServerSession(authOptions);
 
+    const { id } = await context.params;
     const postId = parseInt(id);
     if (isNaN(postId)) {
-        return  NextResponse.json({ success: 0, message: "Invalid 'id' parameter" }, { status: 400 });
+        return NextResponse.json({ success: 0, message: "Invalid 'id' parameter" }, { status: 400 });
     }
 
     try {
-        // Fetch the number of likes for the given postId
+        
         const likesCount = await db.like.count({
             where: { postId },
         });
 
-        // Return the count of likes
-        return NextResponse.json({ success: 1, likes: likesCount });
+        let hasLiked = false;
+        if (session && session.user?.username) {
+            const user = await db.user.findUnique({
+                where: { username: session.user.username },
+                select: { id: true },
+            });
+
+            if (user) {
+                const userLike = await db.like.findUnique({
+                    where: { userId_postId: { userId: user.id, postId } },
+                });
+                hasLiked = userLike ? true : false;
+            }
+        }
+
+        return NextResponse.json({ success: 1, likes: likesCount, hasLiked });
     } catch (error) {
         console.error(error);
         return NextResponse.json({ success: 0, message: "Internal server error" }, { status: 500 });
