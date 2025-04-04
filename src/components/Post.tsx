@@ -17,7 +17,7 @@ type PostProps = {
 export default function Post({ id, title, content, image, author, isUserPost, createdAt}: PostProps) {
     const {data: session} = useSession();
     const [likes, setLikes] = useState<number>(0);
-
+    const [hasLiked, setHasLiked] = useState<boolean>(false);
     // Fetch the number of likes 
     useEffect(() => {
         const fetchLikes = async () => {
@@ -26,6 +26,7 @@ export default function Post({ id, title, content, image, author, isUserPost, cr
                 const data = await response.json();
                 if (data.success) {
                     setLikes(data.likes);
+                    setHasLiked(data.hasLiked)
                 }
             } catch (error) {
                 console.error("Error fetching likes:", error);
@@ -49,6 +50,7 @@ export default function Post({ id, title, content, image, author, isUserPost, cr
                 const data = await response.json();
                 if (data.success) {
                     setLikes((prevLikes) => (data.message === "Post liked" ? prevLikes + 1 : prevLikes - 1));
+                    setHasLiked((prevState) => !prevState);
                 }
             } else {
                 console.error("Failed to like post");
