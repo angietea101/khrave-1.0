@@ -1,7 +1,7 @@
 // src/components/Post.tsx
 "use client";
 import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "@/app/styles/Post.module.css";
 import Image from "next/image";
 
@@ -16,10 +16,57 @@ type PostProps = {
   isUserPost?: boolean;
 };
 
+type Tag = {
+  label: string;
+  count: number;
+  hasTagged: boolean;
+}
+
 export default function Post({ id, title, content, image, author, isUserPost, createdAt}: PostProps) {
     const {data: session} = useSession();
     const [likes, setLikes] = useState<number>(0);
     const [hasLiked, setHasLiked] = useState<boolean>(false);
+
+    // DUMMY DATA FOR TAG UI TESTING
+    const [tags, setTags] = useState<Tag[]>([
+      { label: "Salty", count: 1, hasTagged: true },
+      { label: "Sweet", count: 0, hasTagged: false },
+      { label: "Spicy", count: 1, hasTagged: true },
+      { label: "Bland", count: 0, hasTagged: false },
+    ]);
+    const handleTag = (tag: string) => {
+      setTags((prevTags) => {
+        const updatedTags = prevTags.map((t) => {
+          if (t.label === tag) {
+            if (t.hasTagged === false) return { ...t, count: t.count + 1, hasTagged: true };
+            else return { ...t, count: t.count - 1, hasTagged: false };
+          } else {
+            return t;
+          }
+        });
+        return updatedTags;
+      });
+    }
+
+    // handling click outside of tag menu to close it
+    const [tagsOpen, setTagsOpen] = useState<boolean>(false);
+    const menuVisible = (initial: boolean) => {
+      const ref = useRef<HTMLDivElement>(null);
+      const handleClickOutside = (e: Event) => {
+        if (ref.current && !ref.current.contains(e.target as Node)) {
+          setTagsOpen(false);
+        }
+      }
+      useEffect(() => {
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+          document.removeEventListener('click', handleClickOutside, true);
+        }
+      })
+      return { ref };
+    }
+    const { ref } = menuVisible(false);
+
     // Fetch the number of likes 
     useEffect(() => {
         const fetchLikes = async () => {
@@ -108,8 +155,39 @@ export default function Post({ id, title, content, image, author, isUserPost, cr
             />
           </button>
           <span>{likes}</span>
+          <div>
+            {tagsOpen ?
+            <div ref={ref} className={styles.tagMenuWrapper}>
+              {tags.map((tag) =>
+              (<button key={tag.label} className={styles.tagWrapper + tag.label}
+                onClick={() => {handleTag(tag.label)}}
+                >
+              <div className={styles.tagLabelWrapper + tag.label}>{tag.label}</div>
+              {tag.count > 0 && (
+                <div className={styles.tagNumberWrapper + tag.label}>
+                  {tag.count}
+                </div>
+              )
+              }</button>))}</div>
+             : 
+             <div className={styles.tagMenuWrapper}>
+              {tags.map((tag) => (
+                (tag.count > 0) && (<button key={tag.label} className={styles.tagWrapper + tag.label}
+                  onClick={() => {handleTag(tag.label)}}
+                  >
+                <div className={styles.tagLabelWrapper + tag.label}>{tag.label}</div>
+                {tag.count > 0 && (
+                  <div className={styles.tagNumberWrapper + tag.label}>
+                    {tag.count}
+                  </div>
+                )}
+                </button>)))}
+              <button className={styles.addTagWrapper} onClick={() => {setTagsOpen(true)}}>+</button>
+            </div>}
+          </div>
         </div>
       </div>
     </div>
   );
 }
+

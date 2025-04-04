@@ -84,9 +84,155 @@
 .likeAndTagWrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: auto;
   gap: 0.3rem;
 }
+
+.tagMenuWrapper {
+  margin: 0rem 0.5rem;
+  display: flex;
+  align-items: center;
+  width: auto;
+  gap: 0.5rem;
+}
+
+
+.addTagWrapper {
+  padding: 0rem 0.5rem;
+  margin: 0rem 0.5rem;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  border-color: var(--light-medium-green);
+  color: var(--light-medium-green);
+  background-color: var(--light-green);
+}
+
+.addTagWrapper:hover {
+  border-color: var(--medium-green);
+  color: var(--medium-green);
+}
+
+.tagWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: var(--salty-light);
+  background-color: var(--salty-dark);
+}
+
+.tagWrapperSalty {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: var(--salty-light);
+  background-color: var(--salty-dark);
+}
+
+.tagWrapperSweet {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: var(--sweet-light);
+  background-color: var(--sweet-dark);
+}
+
+.tagWrapperSpicy {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: var(--spicy-light);
+  background-color: var(--spicy-dark);
+}
+
+.tagWrapperBland {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: var(--bland-light);
+  background-color: var(--bland-dark);
+}
+
+.tagLabelWrapper {
+  border: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  color: var(--medium-green);
+  background-color: var(--beige);
+  padding: 0rem 0.75rem;
+}
+.tagNumberWrapper {
+  color: var(--beige);
+  padding: 0rem 0.5rem;
+}
+
+.tagLabelWrapperSalty {
+  border: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  color: var(--salty-dark);
+  background-color: var(--salty-light);
+  padding: 0rem 0.75rem;
+}
+.tagNumberWrapperSalty {
+  color: var(--salty-light);
+  padding: 0rem 0.5rem;
+}
+
+.tagLabelWrapperSweet {
+  border: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  color: var(--sweet-dark);
+  background-color: var(--sweet-light);
+  padding: 0rem 0.75rem;
+}
+.tagNumberWrapperSweet {
+  color: var(--sweet-light);
+  padding: 0rem 0.5rem;
+}
+
+.tagLabelWrapperSpicy {
+  border: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  color: var(--spicy-dark);
+  background-color: var(--spicy-light);
+  padding: 0rem 0.75rem;
+}
+.tagNumberWrapperSpicy {
+  color: var(--spicy-light);
+  padding: 0rem 0.5rem;
+}
+
+.tagLabelWrapperBland {
+  border: solid;
+  border-width: 2px;
+  border-radius: 0.5rem;
+  color: var(--bland-dark);
+  background-color: var(--bland-light);
+  padding: 0rem 0.75rem;
+}
+.tagNumberWrapperBland {
+  color: var(--bland-light);
+  padding: 0rem 0.5rem;
+}
+
 
 @media (max-width: 740px) {
   .contentWrapper:has(img) {

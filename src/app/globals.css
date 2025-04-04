@@ -11,13 +11,22 @@
 
   /* Theme Colors */
   --background: #FFFDEA;
-  --dark-green: #142A03;
+  --dark-green: #2A4213;
   --medium-green: #517B53;
   --medium-hover: #6A9C6D;
-  --light-medium-green: #90c070;
+  --light-medium-green: #94A972;
   --light-green: #D7E2B8;
   --light-hover: #C1D19E;
   --beige: #F8EEB9;
+  /* Tag Colors */
+  --sweet-dark: #9B4B65;
+  --sweet-light: #DED4D5;
+  --salty-dark: #8D7841;
+  --salty-light: #E7E2C0;
+  --spicy-dark: #A85044;
+  --spicy-light: #DDCCBC;
+  --bland-dark: #5B658E;
+  --bland-light: #DBE4EC;
 
   --transition-3s: 0.3s;
 
