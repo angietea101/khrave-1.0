@@ -84,14 +84,24 @@
 .likeAndTagWrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   width: auto;
-  gap: 0.3rem;
+  gap: 0.5rem;
+}
+
+.likeButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .tagMenuWrapper {
-  margin: 0rem 0.5rem;
+  margin: 0rem 0.3rem;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   width: auto;
   gap: 0.5rem;
@@ -100,7 +110,6 @@
 
 .addTagWrapper {
   padding: 0rem 0.5rem;
-  margin: 0rem 0.5rem;
   border-width: 2px;
   border-radius: 0.5rem;
   border-color: var(--light-medium-green);

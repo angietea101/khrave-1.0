@@ -146,15 +146,17 @@ export default function Post({ id, title, content, image, author, isUserPost, cr
           )}
         </div>
         <div className={styles.likeAndTagWrapper}>
-          <button onClick={handleLike} className={styles.likeButton}>
-            <Image
-              src={hasLiked ? "/icons/like-button-active.svg":"/icons/like-button.svg"}
-              alt="Like Button"
-              width={24}
-              height={24}
-            />
-          </button>
-          <span>{likes}</span>
+          <div className={styles.likeButton}>
+            <button onClick={handleLike}>
+              <Image
+                src={hasLiked ? "/icons/like-button-active.svg":"/icons/like-button.svg"}
+                alt="Like Button"
+                width={24}
+                height={24}
+              />
+            </button>
+            <span>{likes}</span>
+          </div>
           <div>
             {tagsOpen ?
             <div ref={ref} className={styles.tagMenuWrapper}>
