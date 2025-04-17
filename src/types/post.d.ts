@@ -12,6 +12,7 @@ export interface Post {
     vendor: {
         vendorName: string;
     };
+    isEdited: boolean;
 }
 
 export interface UserPostsProps {

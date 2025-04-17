@@ -5,6 +5,7 @@ import { Post as PostType, UserPostsProps } from "@/types/post";
 import Post from "@/components/Post";
 import PostForm from "@/components/form/PostForm";
 import Image from "next/image";
+import PreviousMap_ from "postcss/lib/previous-map";
 
 const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
   const [posts, setPosts] = useState<PostType[]>([]);
@@ -55,15 +56,17 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
 
   const handleEditComplete = (updatedPost: PostType | null) => {
     if (updatedPost) {
-      setPosts((prevPosts) =>
+      setPosts((prevPosts) => 
         prevPosts.map((post) =>
-          post.id === updatedPost.id ? { ...post, ...updatedPost } : post
+          post.id === updatedPost.id ? {...post, ...updatedPost} : post
         )
       );
+
     } else {
       setEditingPost(null);
     }
   };
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -102,6 +105,7 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
                   vendor={post.vendor}
                   isUserPost={true}
                   createdAt={post.createdAt}
+                  isEdited ={post.isEdited}
                 />
                 <div className="absolute top-6 right-8 flex items-center space-x-2">
                   <button

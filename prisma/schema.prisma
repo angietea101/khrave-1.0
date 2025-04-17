@@ -42,6 +42,7 @@ model Post {
   vote      Int
   createdAt DateTime @default(now())
   image     String?
+  isEdited  Boolean  @default(false)
 
   vendor   Vendor @relation(fields: [vendorId], references: [id])
   vendorId Int

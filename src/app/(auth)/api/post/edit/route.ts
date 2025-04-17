@@ -51,7 +51,6 @@ export async function PUT(request: Request) {
             const buffer = Buffer.from(await newImage.arrayBuffer());
             await writeFile(uploadPath, buffer);
             imagePath = `/uploads/${fileName}`;
-
         }
 
         // Update post
@@ -61,9 +60,11 @@ export async function PUT(request: Request) {
                 title: newTitle || post.title,
                 content: newContent || post.content,
                 image: imagePath,
+                isEdited: true
             },
         });
-        return NextResponse.json({ success: true, post: updatedPost })
+        
+        return NextResponse.json({ success: true, post: updatedPost });
     } catch (error) {
         console.error("Error updating post:", error)
         return NextResponse.json({ error: "Internal Server Error"}, { status: 500 });

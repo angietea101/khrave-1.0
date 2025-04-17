@@ -84,9 +84,11 @@ export default function PostForm({
                 });
     
                 updatedPost = await response.json();
+                
                 if (onEditComplete && updatedPost) {
                     onEditComplete(updatedPost);
                 }
+
                 window.location.reload();
             } else {
                 // Create post logic
@@ -96,6 +98,7 @@ export default function PostForm({
                 });
     
                 updatedPost = await response.json();
+                
                 router.push(`/vendors/${vendor}`);
             }
         } catch (error) {

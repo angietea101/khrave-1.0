@@ -14,6 +14,7 @@ type PostProps = {
   vendor: { vendorName: string };
   createdAt: string;
   isUserPost?: boolean;
+  isEdited: boolean;
 };
 
 type Tag = {
@@ -22,7 +23,7 @@ type Tag = {
   hasTagged: boolean;
 }
 
-export default function Post({ id, title, content, image, author, isUserPost, createdAt}: PostProps) {
+export default function Post({ id, title, content, image, author, isUserPost, createdAt, isEdited }: PostProps) {
     const {data: session} = useSession();
     const [likes, setLikes] = useState<number>(0);
     const [hasLiked, setHasLiked] = useState<boolean>(false);
@@ -128,7 +129,7 @@ export default function Post({ id, title, content, image, author, isUserPost, cr
         <div className={styles.subjectWrapper}>
           <h3 className={styles.postUsername}>@{author.username}</h3>
           <h3 className={styles.postTitle}>{title}</h3>
-          <h3 className={styles.postDate}>{createdAt.slice(0, 10)}</h3>
+          <h3 className={styles.postDate}>{createdAt.slice(0, 10)} {isEdited ? "(edited)" : ""}</h3>
         </div>
         <div
           className={`${styles.contentWrapper} ${
