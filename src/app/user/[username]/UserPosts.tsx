@@ -71,7 +71,7 @@ const UserPosts: React.FC<UserPostsProps> = ({ username }) => {
 
   return (
     <div className="user-post-page-container">
-      <h1 className="posts-for-title">Posts for @{username}</h1>
+      {/* <h1 className="posts-for-title">Posts for @{username}</h1> */}
       {posts.length > 0 ? (
         <ul className="post-display-wrapper">
           {posts.map((post) =>

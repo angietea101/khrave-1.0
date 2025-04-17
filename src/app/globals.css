@@ -584,7 +584,7 @@ body {
 }
 
 .post-display-wrapper {
-  @apply w-4/5 min-w-96;
+  @apply w-full;
 }
 
 .subject-wrapper {
@@ -657,7 +657,7 @@ body {
 
 /* User Post Page */
 .user-post-page-container {
-  @apply flex flex-col justify-center items-center w-5/6 m-32 max-w-6xl;
+  @apply flex flex-col justify-center items-center w-full;
 }
 
 .posts-for-title {
